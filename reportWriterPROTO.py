@@ -1,8 +1,8 @@
 import sys
 import random
-#from docx import Document
+from docx import Document
 
-#document = Document()
+document = Document('master.docx')
 
 if len(sys.argv) < 5:
     print("Not enough information. Please provide First Name, Last Name, Gender - f for female, m for male,"
@@ -53,7 +53,7 @@ badAttainment = (
     "{0} has not done well enough this year, {2} has shown glimmers of ability in Maths,"
     " but needs to improve in Phonics. ",
     "{0} {1} has not shown enough ability this year, {2} has not made progress in all of"
-    " {3} subjects and should be worried about moving into Year 2. "
+    " their subjects and should be worried about moving into Year 2. "
 )
 
 goodBehaviour = (
@@ -69,7 +69,7 @@ okBehaviour = (
 )
 
 badBehaviour = (
-    "{0} is too chatty sometimes and would do well not to stay focused on {3} work instead of distracting others. ",
+    "{0} is too chatty sometimes and would do well not to stay focused on their work instead of distracting others. ",
     "{0}'s energy needs to be applied more to studies and less to playing with classmates. ",
     "{0} is a disruptive influence in the class and would benefit from focusing more in lessons. "
 )
@@ -118,7 +118,16 @@ else:
     report += decent[x].format(firstName, secondName, nominalPronoun)
 
 print(report)
-# document.add_paragraph(report)
-# documentName = firstName + secondName + '.docx'
-# document.save()
+
+for table in document.tables:
+    for column in table.columns:
+        for cell in column.cells:
+            for paragraph in cell.paragraphs:
+                if 'Religious Education' in paragraph.text:
+                    paragraph.add_run(report)
+                    break
+
+#document.add_paragraph(report)
+documentName = firstName + secondName + '.docx'
+document.save(documentName)
 # Maths English Phonics Science R.E. Behavioural/Application(Optional) for each subject General comment about behaviour
