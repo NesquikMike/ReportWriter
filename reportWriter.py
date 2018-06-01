@@ -12,72 +12,31 @@ if len(sys.argv) < 10:
 firstName = sys.argv[1]
 gender = sys.argv[2]
 
-religStudyEffort = ""
-englishEffort = ""
-phonicsEffort = ""
-mathsEffort = ""
-scienceEffort = ""
-
-if len(sys.argv[6]) == 2:
-    maths = int(sys.argv[6][0])
-    mathsEffort = int(sys.argv[6][1])
-    if mathsEffort < 1 or mathsEffort > 3:
-        print("ERROR: Please insert a valid value for Maths Effort - where 1 is bad, 2 is ok, 3 is good Effort.")
-        exit()
-else:
-    maths = int(sys.argv[3][0])
+maths = int(sys.argv[3])
 
 if maths < 1 or maths > 3:
     print("ERROR: Please insert a valid value for Maths Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
         
-if len(sys.argv[4]) == 2:
-    english = int(sys.argv[4][0])
-    englishEffort = int(sys.argv[4][1])
-    if englishEffort < 1 or englishEffort > 3:
-        print("ERROR: Please insert a valid value for English Effort - where 1 is bad, 2 is ok, 3 is good Effort.")
-        exit()
-else:
-    english = int(sys.argv[4][0])
+english = int(sys.argv[4])
     
 if english < 1 or english > 3:
     print("ERROR: Please insert a valid value for English Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-if len(sys.argv[5]) == 2:
-    phonics = int(sys.argv[5][0])
-    phonicsEffort = int(sys.argv[5][1])
-    if phonicsEffort < 1 or phonicsEffort > 3:
-        print("ERROR: Please insert a valid value for Phonics Effort - where 1 is bad, 2 is ok, 3 is good Effort.")
-        exit()
-else:
-    phonics = int(sys.argv[5][0])
+phonics = int(sys.argv[5])
     
 if phonics < 1 or phonics > 3:
     print("ERROR: Please insert a valid value for Phonics Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-if len(sys.argv[7]) == 2:
-    science = int(sys.argv[7][0])
-    scienceEffort = int(sys.argv[7][1])
-    if scienceEffort < 1 or scienceEffort > 3:
-        print("ERROR: Please insert a valid value for Science Effort - where 1 is bad, 2 is ok, 3 is good Effort.")
-        exit()
-else:
-    science = int(sys.argv[6][0])
+science = int(sys.argv[6])
     
 if science < 1 or science > 3:
     print("ERROR: Please insert a valid value for Science Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-if len(sys.argv[3]) == 2:
-    religStudy = int(sys.argv[3][0])
-    religStudyEffort = int(sys.argv[3][1])
-    if religStudyEffort < 1 or religStudyEffort > 3:
-        print("ERROR: Please insert a valid value for Religious Studies Effort - where 1 is bad, 2 is ok, 3 is good Effort.")
-        exit()
-else:
-    religStudy = int(sys.argv[3][0])
+religStudy = int(sys.argv[3])
     
 if religStudy < 1 or religStudy > 3:
     print("ERROR: Please insert a valid value for Religious Study Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
@@ -87,6 +46,8 @@ otherSubjects = int(sys.argv[8])
 behaviour = int(sys.argv[9])
 nominalPronoun = "she"
 possessivePronoun = "her"
+nominalPronounCapitalised = "She"
+possessivePronounCapitalised = "Her"
 report = ""
 
 if gender != "m" and gender != "f":
@@ -95,48 +56,53 @@ if gender != "m" and gender != "f":
 elif gender == "m":
     nominalPronoun = "he"
     possessivePronoun = 'his'
+    nominalPronounCapitalised = "He"
+    possessivePronounCapitalised = "His"
 
 if behaviour < 1 or behaviour > 3:
     print("Please insert a valid value for Behaviour - where 1 is bad, 2 is ok, 3 is good Behaviour.")
     exit()
 
 goodMaths = (
-    "{0} {1} has made excellent progress this academic year, {2} has made fantastic progress in Phonics especially. ",
+    "{0} has made excellent progress this academic year, {2} has made fantastic progress in Phonics especially. ",
     "{0} has done very well this year, {2} has shown fantastic ability in Maths. ",
-    "{0} {1} has shown fantastic ability this year, {2} has made progress in all of"
+    "{0} has shown fantastic ability this year, {1} has made progress in all of"
     " {2} subjects and is in a great place to move into Year 2. "
 )
 
 okMaths = (
-    "{0} {1} has made reasonable progress this academic year, {2} has made the most progress in Science. ",
+    "{0} has made reasonable progress this academic year, {2} has made the most progress in Science. ",
     "{0} has done well this year, {2} should focus on {2} phonics where more improvement is needed. ",
-    "{0} {1} has shown good ability this year, {2} should practice Maths more"
+    "{0} has shown good ability this year, {2} should practice Maths more"
     " in order to be best placed to move into Year 2. "
 )
 
 badMaths = (
-    "{0} {1} has not made enough progress this academic year, {2} needs to improve in English to be ready for the"
+    "{0} has not made enough progress this academic year, {2} needs to improve in English to be ready for the"
     " jump to Year 2. ",
     "{0} has not done well enough this year, {2} has shown glimmers of ability in Maths,"
     " but needs to improve in Phonics. ",
-    "{0} {1} has not shown enough ability this year, {2} has not made progress in all of"
+    "{0} has not shown enough ability this year, {2} has not made progress in all of"
     " {2} subjects and should be worried about moving into Year 2. "
 )
 
-goodMathsEffort = (
-    "{0} has made an excellent effort in Maths. ",
+goodEnglishOverall = (
+    "{0} has made excellent progress during English this year. ",
+    "{0} has progressed well in English this year. "
 )
 
-okMathsEffort = (
-    "{0} has made a decent effort in Maths, although they could still improve. ",
+goodEnglishSentenceStructure = (
+    "{3} demonstrates a sound knowledge of a range of sentence structures and can consistently and confidently use "
+    "time connectives to write a well structured recount. ",
+    "{3} is a confident writer and displays a sound understanding of a variety of sentence structures. "
+    "{3} consistently uses a range of time connectives to formulate well-structured recounts and has a good"
+    " comprehension of the way in which adjectives and descriptive language can be used to enhance a piece of writing. "
 )
 
-badMathsEffort = (
-    "{0} has made a poor effort in Maths. ",
-)
-
-goodEnglish = (
-    "{0} has done brilliantly in English. ",
+goodEnglishPunctuation = (
+    "{4} use and comprehension of full stops and capital letters is excellent, and {1} is starting to use other"
+    " punctuation, such as speech marks, exclamation marks and possessive apostrophes in {2} writing. ",
+    "{4} use of capital letters and full stops is very consistent. "
 )
 
 okEnglish = (
@@ -147,20 +113,23 @@ badEnglish = (
     "{0} has done badly in English. ",
 )
 
-goodEnglishEffort = (
-    "{0} has made an excellent effort in English. ",
+goodPhonicsOverall = (
+    "{0}'s knowledge of phonics sounds is excellent. ",
 )
 
-okEnglishEffort = (
-    "{0} has made a decent effort in English, although they could still improve. ",
+goodPhonicsSounds = (
+    "{3} is able to decode and blend a range of words carefully and accurately and can confidently read and transcribe"
+    " all of the 40+ phonemes. ",
 )
 
-badEnglishEffort = (
-    "{0} has made a poor effort in English. ",
-)
-
-goodPhonics = (
-    "{0} has done brilliantly in Phonics. ",
+goodPhonicsReading = (
+    "{0} shows an enthusiasm for reading and I have been very impressed by {2} insightful and thoughtful"
+    " contributions to discussions during  whole-class reading sessions. "
+    "{3} demonstrates a good understanding of story features and makes erudite inferences about characters and"
+    " events. ",
+    "{0} has shown a considerable interest in reading for pleasure, and I have been very impressed by {2} readiness to"
+    " share {2} reading experiences and favourite books with the rest of the class. {4} thoughtful contributions to "
+    "discussions during whole-class reading sessions have been very much appreciated. "
 )
 
 okPhonics = (
@@ -169,18 +138,6 @@ okPhonics = (
 
 badPhonics = (
     "{0} has done badly in Phonics. ",
-)
-
-goodPhonicsEffort = (
-    "{0} has made an excellent effort in Phonics. ",
-)
-
-okPhonicsEffort = (
-    "{0} has made a decent effort in Phonics, although they could still improve. ",
-)
-
-badPhonicsEffort = (
-    "{0} has made a poor effort in Phonics. ",
 )
 
 goodScience = (
@@ -195,18 +152,6 @@ badScience = (
     "{0} has done badly in Science. ",
 )
 
-goodScienceEffort = (
-    "{0} has made an excellent effort in Science. ",
-)
-
-okScienceEffort = (
-    "{0} has made a decent effort in Science, although they could still improve. ",
-)
-
-badScienceEffort = (
-    "{0} has made a poor effort in Science. ",
-)
-
 goodReligStudy = (
     "{0} has done brilliantly in Religious Studies. ",
 )
@@ -219,20 +164,8 @@ badReligStudy = (
     "{0} has done badly in Religious Studies. ",
 )
 
-goodReligStudyEffort = (
-    "{0} has made an excellent effort in Religious Studies. ",
-)
-
-okReligStudyEffort = (
-    "{0} has made a decent effort in Religious Studies, although they could still improve. ",
-)
-
-badReligStudyEffort = (
-    "{0} has made a poor effort in Religious Studies. ",
-)
-
 goodOtherSubjects = (
-    "{0} has done well in {2} other subjects"
+    "{0} has done well in {2} other subjects. ",
 )
 
 okOtherSubjects = (
@@ -283,17 +216,6 @@ elif religStudy == 2:
 else:
     x = random.randint(0, len(goodReligStudy) - 1)
     report += goodReligStudy[x]
-    
-if religStudyEffort:
-    if religStudyEffort == 1:
-        x = random.randint(0, len(badReligStudyEffort) - 1)
-        report += badReligStudyEffort[x]
-    elif religStudyEffort == 2:
-        x = random.randint(0, len(okReligStudyEffort) - 1)
-        report += okReligStudyEffort[x]
-    else:
-        x = random.randint(0, len(goodReligStudyEffort) - 1)
-        report += goodReligStudyEffort[x]
 
 report += "\n"
 
@@ -305,19 +227,14 @@ elif english == 2:
     x = random.randint(0, len(okEnglish) - 1)
     report += okEnglish[x]
 else:
-    x = random.randint(0, len(goodEnglish) - 1)
-    report += goodEnglish[x]
-    
-if englishEffort:
-    if englishEffort == 1:
-        x = random.randint(0, len(badEnglishEffort) - 1)
-        report += badEnglishEffort[x]
-    elif englishEffort == 2:
-        x = random.randint(0, len(okEnglishEffort) - 1)
-        report += okEnglishEffort[x]
-    else:
-        x = random.randint(0, len(goodEnglishEffort) - 1)
-        report += goodEnglishEffort[x]
+    x = random.randint(0, len(goodEnglishOverall) - 1)
+    report += goodEnglishOverall[x]
+    x = random.randint(0, len(goodEnglishSentenceStructure) - 1)
+    report += goodEnglishSentenceStructure[x]
+    x = random.randint(0, len(goodEnglishPunctuation) - 1)
+    report += goodEnglishPunctuation[x]
+
+report += "\n\n"
 
 if phonics == 1:
     x = random.randint(0, len(badPhonics) - 1)
@@ -326,19 +243,12 @@ elif phonics == 2:
     x = random.randint(0, len(okPhonics) - 1)
     report += okPhonics[x]
 else:
-    x = random.randint(0, len(goodPhonics) - 1)
-    report += goodPhonics[x]
-
-if phonicsEffort:
-    if phonicsEffort == 1:
-        x = random.randint(0, len(badPhonicsEffort) - 1)
-        report += badPhonicsEffort[x]
-    elif phonicsEffort == 2:
-        x = random.randint(0, len(okPhonicsEffort) - 1)
-        report += okPhonicsEffort[x]
-    else:
-        x = random.randint(0, len(goodPhonicsEffort) - 1)
-        report += goodPhonicsEffort[x]
+    x = random.randint(0, len(goodPhonicsOverall) - 1)
+    report += goodPhonicsOverall[x]
+    x = random.randint(0, len(goodPhonicsSounds) - 1)
+    report += goodPhonicsSounds[x]
+    x = random.randint(0, len(goodPhonicsReading) - 1)
+    report += goodPhonicsReading[x]
 
 report += "\n"
 
@@ -352,17 +262,6 @@ elif maths == 2:
 else:
     x = random.randint(0, len(goodMaths) - 1)
     report += goodMaths[x]
-    
-if mathsEffort:
-    if mathsEffort == 1:
-        x = random.randint(0, len(badMathsEffort) - 1)
-        report += badMathsEffort[x]
-    elif mathsEffort == 2:
-        x = random.randint(0, len(okMathsEffort) - 1)
-        report += okMathsEffort[x]
-    else:
-        x = random.randint(0, len(goodMathsEffort) - 1)
-        report += goodMathsEffort[x]
 
 report += "\n"
 
@@ -376,17 +275,6 @@ elif science == 2:
 else:
     x = random.randint(0, len(goodScience) - 1)
     report += goodScience[x]
-    
-if scienceEffort:
-    if scienceEffort == 1:
-        x = random.randint(0, len(badScienceEffort) - 1)
-        report += badScienceEffort[x]
-    elif scienceEffort == 2:
-        x = random.randint(0, len(okScienceEffort) - 1)
-        report += okScienceEffort[x]
-    else:
-        x = random.randint(0, len(goodScienceEffort) - 1)
-        report += goodScienceEffort[x]
 
 report += "\n"
 
@@ -420,5 +308,9 @@ report += "\n"
 #     x = random.randint(0, len(decent) - 1)
 #     report += decent[x]
 
-report = report.format(firstName, nominalPronoun, possessivePronoun)
+report = report.format(firstName,
+                       nominalPronoun,
+                       possessivePronoun,
+                       nominalPronounCapitalised,
+                       possessivePronounCapitalised)
 print(report)
