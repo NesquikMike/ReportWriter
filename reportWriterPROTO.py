@@ -11,6 +11,7 @@ if len(sys.argv) < 5:
 
 firstName = sys.argv[1]
 secondName = sys.argv[2]
+fullName = " " + firstName + " " + secondName
 gender = sys.argv[3]
 attainment = int(sys.argv[4])
 behaviour = int(sys.argv[5])
@@ -37,12 +38,12 @@ goodAttainment = (
     "{0} {1} has made excellent progress this academic year, {2} has made fantastic progress in Phonics especially. ",
     "{0} has done very well this year, {2} has shown fantastic ability in Maths. ",
     "{0} {1} has shown fantastic ability this year, {2} has made progress in all of"
-    " {3} subjects and is in a great place to move into Year 2. "
+    " {2} subjects and is in a great place to move into Year 2. "
 )
 
 okAttainment = (
     "{0} {1} has made reasonable progress this academic year, {2} has made the most progress in Science. ",
-    "{0} has done well this year, {2} should focus on {3} phonics where more improvement is needed. ",
+    "{0} has done well this year, {2} should focus on {2} phonics where more improvement is needed. ",
     "{0} {1} has shown good ability this year, {2} should practice Maths more"
     " in order to be best placed to move into Year 2. "
 )
@@ -57,7 +58,7 @@ badAttainment = (
 )
 
 goodBehaviour = (
-    "{0} is very well behaved and sets a fantastic example to {3} peers. ",
+    "{0} is very well behaved and sets a fantastic example to {2} peers. ",
     "{0} is always ready to learn and leads the classroom in behaviour. ",
     "{0} is delightful to work with and always gives 100%. "
 )
@@ -119,13 +120,23 @@ else:
 
 print(report)
 
-for table in document.tables:
-    for column in table.columns:
-        for cell in column.cells:
-            for paragraph in cell.paragraphs:
-                if 'Religious Education' in paragraph.text:
-                    paragraph.add_run(report)
-                    break
+def addText():
+    for table in document.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                for paragraph in cell.paragraphs:
+                    if 'Pupil:' in paragraph.text:
+                        paragraph.add_run(fullName)
+                    if 'Class:' in paragraph.text:
+                        paragraph.add_run(" Year 1")
+                    if 'Teacher:' in paragraph.text:
+                        paragraph.add_run(" Miss B. Archibald")
+                    if 'Religious Education' in paragraph.text:
+                        paragraph.add_run("\n" + report)
+                        return
+
+
+addText()
 
 #document.add_paragraph(report)
 documentName = firstName + secondName + '.docx'

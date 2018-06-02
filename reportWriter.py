@@ -1,49 +1,51 @@
 import sys
 import random
-#from docx import Document
+from docx import Document
 
-#document = Document()
+document = Document('master.docx')
 
-if len(sys.argv) < 10:
+if len(sys.argv) < 11:
     print("ERROR: Not enough information. Please provide First Name, Last Name, Gender - f for female, m for male,"
-          " Attainment and Behaviour - where 1 is bad, 2 is ok, 3 is good attainment or behaviour.")
+          " RE, English, Phonics, Maths, Science, Other Subjects and Behaviour "
+          "- where 1 is bad, 2 is ok, 3 is good attainment or behaviour.")
     exit()
 
 firstName = sys.argv[1]
-gender = sys.argv[2]
+lastName = sys.argv[2]
+gender = sys.argv[3]
 
-maths = int(sys.argv[3])
+maths = int(sys.argv[4])
 
 if maths < 1 or maths > 3:
     print("ERROR: Please insert a valid value for Maths Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
         
-english = int(sys.argv[4])
+english = int(sys.argv[5])
     
 if english < 1 or english > 3:
     print("ERROR: Please insert a valid value for English Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-phonics = int(sys.argv[5])
+phonics = int(sys.argv[6])
     
 if phonics < 1 or phonics > 3:
     print("ERROR: Please insert a valid value for Phonics Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-science = int(sys.argv[6])
+science = int(sys.argv[7])
     
 if science < 1 or science > 3:
     print("ERROR: Please insert a valid value for Science Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-religStudy = int(sys.argv[3])
+religStudy = int(sys.argv[8])
     
 if religStudy < 1 or religStudy > 3:
     print("ERROR: Please insert a valid value for Religious Study Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
 
-otherSubjects = int(sys.argv[8])
-behaviour = int(sys.argv[9])
+otherSubjects = int(sys.argv[9])
+behaviour = int(sys.argv[10])
 nominalPronoun = "she"
 possessivePronoun = "her"
 nominalPronounCapitalised = "She"
