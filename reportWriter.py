@@ -138,7 +138,7 @@ okEnglishSpelling = (
     "{4} accurate spelling of high frequency and tricky words is steadily improving, and {0} should continue to"
     " apply {2} knowledge of phonemes when sounding out and spelling words. {0} is developing {2} knowledge and use of"
     " adjectives, and I have seen {2} use a range of time connectives to write a well-structured recount. ",
-    "{0} has a sound knowledge of phase 3 and 4 high frequency words and I would like to see {2] develop more"
+    "{0} has a sound knowledge of phase 3 and 4 high frequency words and I would like to see {2} develop more"
     " confidence with spelling phase 5 tricky words. {0} is a confident and imaginative writer and has developed"
     " {2} knowledge of a range of adjectives to enhance {2} writing. "
 )
@@ -176,7 +176,7 @@ okPhonicsProgress = (
     " to see {0} develop {2} knowledge of alternative spellings for various sounds. ",
     "{0} is an accurate and confident decoder and blender of words and sounds and I have been pleased with {2}"
     " progress in phonics this year. {3} can consistently identify the majority of the 40+ phonemes and can apply"
-    " these sounds well in the majority of cases when spelling words. I would like {0} take {2} time when"
+    " these sounds well in the majority of cases when spelling words. I would like {0} to take {2} time when"
     " sounding out words for spellings, in order to ensure that {2} spellings are consistently accurate and plausible. "
 )
 
@@ -367,12 +367,6 @@ else:
 report += generalReport
 report += "\n"
 
-# if (attainment + behaviour) > 4:
-#     x = random.randint(0, len(praise) - 1)
-#     report += praise[x]
-# else:
-#     x = random.randint(0, len(decent) - 1)
-#     report += decent[x]
 religStudyReport = religStudyReport.format(firstName,
                        nominalPronoun,
                        possessivePronoun,
@@ -403,6 +397,7 @@ report = report.format(firstName,
                        possessivePronoun,
                        nominalPronounCapitalised,
                        possessivePronounCapitalised)
+
 def delete_paragraph(paragraph):
     p = paragraph._element
     p.getparent().remove(p)
@@ -429,73 +424,49 @@ def addDetails():
                         paragraph.add_run(" Miss B. Archibald")
                         return
 
-def addReligStudiesReport():
+def addSubjectAttainment(subject, subjectAttainment):
     for table in document.tables:
         lstRow = iter(table.rows)
         for row in lstRow:
             for cell in row.cells:
-                lstPara = iter(cell.paragraphs)
-                for paragraph in lstPara:
-                    if 'Religious Education' in paragraph.text:
-                        paragraph.add_run("\n" + religStudyReport)
-                        for para in lstPara:
-                            delete_paragraph(para)
+                for paragraph in cell.paragraphs:
+                    if subject in paragraph.text:
                         for rowExtra in lstRow:
-                            lstCellExtra = iter(rowExtra.cells)
-                            for cellExtra in lstCellExtra:
-                                lstParaExtra = iter(cellExtra.paragraphs)
-                                for paraExtra in lstParaExtra:
+                            for cellExtra in rowExtra.cells:
+                                for paraExtra in cellExtra.paragraphs:
                                     if 'Achievement' in paraExtra.text:
                                         for rowExtraExtra in lstRow:
                                             for cellExtraExtra in rowExtraExtra.cells:
                                                 for paraExtraExtra in cellExtraExtra.paragraphs:
-                                                    paraExtraExtra.add_run(addRating(religStudy))
-                        return
+                                                    if paraExtraExtra.text == "":
+                                                        paraExtraExtra.add_run(addRating(subjectAttainment))
+                                                        return
 
-def addEnglishReport():
+
+def addSubjectReportText(subject, subjectReport):
     for table in document.tables:
         for row in table.rows:
             for cell in row.cells:
                 lst = iter(cell.paragraphs)
                 for paragraph in lst:
-                    if 'English' in paragraph.text:
-                        paragraph.add_run("\n" + englishReport)
+                    if subject in paragraph.text:
+                        paragraph.add_run("\n" + subjectReport)
                         for para in lst:
                             delete_paragraph(para)
                         return
 
-def addMathsReport():
-    for table in document.tables:
-        for row in table.rows:
-            for cell in row.cells:
-                lst = iter(cell.paragraphs)
-                for paragraph in lst:
-                    if 'Mathematics' in paragraph.text:
-                        paragraph.add_run("\n" + mathsReport)
-                        for para in lst:
-                            delete_paragraph(para)
-                        return
-
-def addScienceReport():
-    for table in document.tables:
-        for row in table.rows:
-            for cell in row.cells:
-                lst = iter(cell.paragraphs)
-                for paragraph in lst:
-                    if 'Science' in paragraph.text:
-                        paragraph.add_run("\n" + scienceReport)
-                        for para in lst:
-                            delete_paragraph(para)
-                        return
-
-
-print(report)
+def addSubjectReport(subject, subjectReport, subjectAttainment):
+    addSubjectReportText(subject, subjectReport)
+    addSubjectAttainment(subject, subjectAttainment)
+    return
 
 addDetails()
-addReligStudiesReport()
-addEnglishReport()
-addMathsReport()
-addScienceReport()
+addSubjectReport('Religious Education', religStudyReport, religStudy)
+addSubjectReport('English', englishReport, (english + phonics) // 2)
+addSubjectReport('Mathematics', mathsReport, maths)
+addSubjectReport('Science', scienceReport, science)
 
 documentName = firstName + lastName + '.docx'
 document.save(documentName)
+
+print(report)
