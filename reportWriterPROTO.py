@@ -11,7 +11,7 @@ if len(sys.argv) < 5:
 
 firstName = sys.argv[1]
 secondName = sys.argv[2]
-fullName = " " + firstName + " " + secondName
+fullName = firstName + " " + secondName
 gender = sys.argv[3]
 attainment = int(sys.argv[4])
 behaviour = int(sys.argv[5])
@@ -126,7 +126,7 @@ def addText():
             for cell in row.cells:
                 for paragraph in cell.paragraphs:
                     if 'Pupil:' in paragraph.text:
-                        paragraph.add_run(fullName)
+                        paragraph.add_run(" " + fullName)
                     if 'Class:' in paragraph.text:
                         paragraph.add_run(" Year 1")
                     if 'Teacher:' in paragraph.text:
