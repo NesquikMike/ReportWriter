@@ -13,7 +13,8 @@ This markdown file is an instructional guide on how to install and use the Repor
   open a Terminal) and `$` (This is the symbol that usually precedes an instruction to the computer)in the right places.
    Let's go ahead and pin the Terminal to your dock so that you don't have to keep searching for it to open it. 
   Right click on your open Terminal in the dock and go to `Options` and click `Keep in Dock` like in the image below:
-  [alt text]:(https://cms-assets.tutsplus.com/uploads/users/53/posts/23318/image/pinterminaltodock.png)
+  
+  [teminalDock]:(https://cms-assets.tutsplus.com/uploads/users/53/posts/23318/image/pinterminaltodock.png)
   
 Download Python 3.6
 
