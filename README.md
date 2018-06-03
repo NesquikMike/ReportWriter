@@ -33,7 +33,49 @@ This markdown file is an instructional guide on how to install and use the Repor
         ```
       But there is no need to type the dollar sign, it merely signifies code to type in. :)
       
-  4. 
+  4. Now let's move into the right place to make these folders. Let's first check that the folders are structured as 
+  expected. Do `$ ls` (Remember there is no need to type the dollar sign, it should already be on the last line of 
+  your terminal!) such that you can get a list of files and 
+  folders in your home directory, like so:
+        ```bash
+        $ ls
+        Applications		Public			projects
+        Desktop			i<3HonigSchnitzel.docx  server.R
+        Documents		bash_profile		testGame1.R
+        Downloads		go			testGame2.R
+        IdeaProjects		hello.py		ui.R
+        Library			mpsGame1.R		venv
+        Movies			my_oauth		xkcd.ttf
+        Music			placeNamesFilter.csv
+        Pictures		probRetention.R
+        ```
+        
+     No doubt your list of folders and files will look different to this but it should look similar. Now we should be 
+     ready to move to where we need to be. Move into documents by doing `$ cd Documents` you should have no output 
+     such that the computer is now ready to accept a new instruction:
+     
+     ```bash
+        Honigs-MacBook-Air:~ honigschnitzel$ cd Documents
+        Honigs-MacBook-Air:Documents honigschnitzel$
+        ```
+      Notice that the `~` has been replaced by `Documents`. This is because you are no longer in your Home directory 
+      (a directory is a folder), but you are now in Documents. Whatever follows the colon is always the name of 
+      your current folder in the Terminal.
+      
+  5. Let's now download the program and simultaneously create the folder that will store the program. It will also 
+  store the master file that the program will read to make the file for each student, and the files for each student. 
+  Do `$ git clone https://github.com/NesquikMike/ReportWriter.git` to do both these steps at once, your terminal 
+  output the following upon running this:
+        ```bash
+        $ git clone https://github.com/NesquikMike/ReportWriter.git
+        Cloning into 'ReportWriter'...
+        remote: Counting objects: 42, done.
+        remote: Compressing objects: 100% (23/23), done.
+        remote: Total 42 (delta 16), reused 42 (delta 16), pack-reused 0
+        Unpacking objects: 100% (42/42), done.
+        ```
+      In the event that we uncover a bug and the program needs to be updated 
+  6. 
   
 Download Python 3.6
 
