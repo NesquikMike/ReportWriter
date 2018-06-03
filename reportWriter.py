@@ -72,27 +72,84 @@ if behaviour < 1 or behaviour > 3:
     print("Please insert a valid value for Behaviour - where 1 is bad, 2 is ok, 3 is good Behaviour.")
     exit()
 
-goodMaths = (
-    "{0} has made excellent progress this academic year, {2} has made fantastic progress in Phonics especially. ",
-    "{0} has done very well this year, {2} has shown fantastic ability in Maths. ",
-    "{0} has shown fantastic ability this year, {1} has made progress in all of"
-    " {2} subjects and is in a great place to move into Year 2. "
+goodMathsStart = (
+    "{0} has a sound and in-depth understanding of a range of mathematical concepts, and I have been very "
+    "impressed by {2} continued progress in maths this year. ",
+    "{0}’s progress in maths this year has been excellent "
 )
 
-okMaths = (
-    "{0} has made reasonable progress this academic year, {2} has made the most progress in Science. ",
-    "{0} has done well this year, {2} should focus on {2} phonics where more improvement is needed. ",
-    "{0} has shown good ability this year, {2} should practice Maths more"
-    " in order to be best placed to move into Year 2. "
+goodMathsMiddle = (
+    "{0} is confident with using a range of strategies to solve two-digit addition and subtraction problems, "
+    "and is able to use mathematical reasoning to prove {2} answers both verbally and in writing. {0} is "
+    "developing {2} ability to solve two-step word problems, and takes great care with the presentation of {2} sums "
+    "in {2} maths book. ",
+    "{3} demonstrates a good awareness of a range of strategies which can be used to solve addition and subtraction "
+    "problems, and {1} has a sound knowledge of place value. {3} has begun to develop strategies for solving equations "
+    "involving two-digit numbers, and presents {2} working out neatly in {2} maths book. {0} is a confident "
+    "problem solver, and is able to explain {2} answers clearly and concisely both verbally and in writing."
 )
 
-badMaths = (
-    "{0} has not made enough progress this academic year, {2} needs to improve in English to be ready for the"
-    " jump to Year 2. ",
-    "{0} has not done well enough this year, {2} has shown glimmers of ability in Maths,"
-    " but needs to improve in Phonics. ",
-    "{0} has not shown enough ability this year, {2} has not made progress in all of"
-    " {2} subjects and should be worried about moving into Year 2. "
+goodMathsEnd = (
+    "{3} consistently demonstrates a comprehensive understanding of the link between abstract and concrete "
+    "representations of equations, and can confidently use the Dienes blocks and string-beads to prove {2} answers. ",
+    "{3} is able to use concrete resources, such as the Dienes blocks and string-beads to prove {2} answers, and "
+    "can confidently link these representations to abstract equations. "
+)
+
+okMathsStart = (
+    "{0} has demonstrated a good knowledge of basic mathematical concepts this year. ",
+    "{0} has progressed well in maths this year.  ",
+    "I have been pleased with {0}’s progress in maths this year. "
+)
+
+okMathsEnd = (
+    "{3} is able to explain {2} thinking verbally using simple mathematical terms, and is starting to show {2} "
+    "working out in {2} book clearly and frequently. {3} can now write complete addition and subtraction equations "
+    "in {2} book and has a sound knowledge of number bonds to 10. {4} ability to quickly recall {2} number bonds to "
+    "20 is improving, and {1} can correctly write numbers from 0 to 100. {0} demonstrates a good understanding of "
+    "the relationship between concrete resources and abstract representations of equations, and can use resources, "
+    "such as the Dienes blocks and string-beads to prove {2} answers. I would like to see {0} continue to develop "
+    "{2} verbal reasoning and understanding of mathematical terminology. ",
+    "e can use simple mathematical terms to explain {2} thinking, and is confident about sharing ideas during "
+    "maths discussions on the carpet. {0} can correctly write numbers from 0 to 100, and can efficiently recall "
+    "{2} number bonds to 10. {3} is developing {2} ability to use {2} number facts to 10 and 20 when solving "
+    "addition and subtraction problems, and can now write simple equations clearly in {2} book. {3} is beginning "
+    "to show {2} working out in {2} maths book and I would like to see {0} continue to practise explaining the "
+    "strategies {1} has used, in order to prove {2} answers and to show an in-depth understanding of concepts. {0} "
+    "shows a good comprehension of the ways in which concrete resources, such as the Dienes blocks or string-beads "
+    "can be used to represent an abstract equation, and {1} frequently and accurately utilises these resouces when "
+    "solving problems during lessons. ",
+    "{3} uses simple mathematical terminology to explain {2} thinking and is developing {2} use of more than "
+    "one strategy to solve addition and subtraction problems. {0} can quickly recall {2} number bonds to 10, "
+    "and is becoming increasingly confident about recalling {2} number facts to 20. I would like to see {0} "
+    "begin to apply {2} number facts to 10 and 20 when solving addition and subtraction problems. {0} presents "
+    "{2} work neatly in {2} maths book, and {1} can now confidently write simple equations.  {3} is beginning to "
+    "demonstrate {2} working out in writing in {2} maths book, and uses concrete resources, such as the Dienes "
+    "blocks and string-beads to help {2} solve problems. {0} is increasingly able to show the link between "
+    "concrete resources, such as the string-beads or cubes and abstract representations. "
+)
+
+badMathsStart = (
+    "{0} has made steady progress in maths this year. ",
+    "{0} has progressed well in maths this year. "
+)
+
+badMathsEnd = (
+    "{3} is able to write numbers from 0 to 100 with increasing correctness, and is developing {2} understanding of "
+    "more than and less than, as well as {2} ability to order numbers according to size. {3} has developed a sounder "
+    "knowledge of number bonds to 10, and is beginning to write complete sums in {2} maths book correctly and with "
+    "increasing clarity. I would like {0} to practise recalling {2} number bonds to 10 quickly and correctly, so "
+    "that {1} can apply these number facts when solving addition and subtraction facts. {0} is developing a "
+    "sounder knowledge of place value, and is increasingly confident when using concrete resources such as the "
+    "Dienes blocks and bead-strings to help him solve maths problems. ",
+    "{3} is able to utilise concrete resources, such as the Dienes blocks and bead-strings to help {2} solve "
+    "maths problems, and {1} has gained a sounder knowledge of number bonds to 10. I would like {0} to continue "
+    "practising number facts to 10, and to begin consolidating number facts to 20. A good understanding of these "
+    "will help {2} when solving more complicated addition and subtraction problems. {0} can confidently and "
+    "correctly write the majority of numbers from 0 to 100, and has developed {2} understanding of more than and "
+    "less than. {3} can also order numbers according to size with increasing confidence. {0} is developing {2} "
+    "knowledge of tens and ones, and is beginning to write complete sums in {2} book correctly. {0} should "
+    "practise writing these equations clearly in {2} book. "
 )
 
 goodEnglishOverall = (
