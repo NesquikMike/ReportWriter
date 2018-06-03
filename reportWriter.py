@@ -398,10 +398,12 @@ report = report.format(firstName,
                        nominalPronounCapitalised,
                        possessivePronounCapitalised)
 
+
 def delete_paragraph(paragraph):
     p = paragraph._element
     p.getparent().remove(p)
     p._p = p._element = None
+
 
 def addRating(rating):
     if rating == 1:
@@ -410,6 +412,7 @@ def addRating(rating):
         return "At"
     else:
         return "Ab"
+
 
 def addDetails():
     for table in document.tables:
@@ -423,6 +426,7 @@ def addDetails():
                     if 'Teacher:' in paragraph.text:
                         paragraph.add_run(" Miss B. Archibald")
                         return
+
 
 def addSubjectAttainment(subject, subjectAttainment):
     for table in document.tables:
@@ -455,10 +459,12 @@ def addSubjectReportText(subject, subjectReport):
                             delete_paragraph(para)
                         return
 
+
 def addSubjectReport(subject, subjectReport, subjectAttainment):
     addSubjectReportText(subject, subjectReport)
     addSubjectAttainment(subject, subjectAttainment)
     return
+
 
 addDetails()
 addSubjectReport('Religious Education', religStudyReport, religStudy)
