@@ -3,7 +3,7 @@ This markdown file is an instructional guide on how to install and use the Repor
 
 ## Installing 
 
-#### 1. Creating the right folders
+#### 1. Setting up the folder
   
   1. Press the magnifying glass icon in the top right hand corner of the screen and type in `terminal` and press Enter. 
    
@@ -54,7 +54,7 @@ This markdown file is an instructional guide on how to install and use the Repor
      ready to move to where we need to be. Move into documents by doing `$ cd Documents` you should have no output 
      such that the computer is now ready to accept a new instruction:
      
-     ```bash
+        ```bash
         Honigs-MacBook-Air:~ honigschnitzel$ cd Documents
         Honigs-MacBook-Air:Documents honigschnitzel$
         ```
@@ -74,8 +74,49 @@ This markdown file is an instructional guide on how to install and use the Repor
         remote: Total 42 (delta 16), reused 42 (delta 16), pack-reused 0
         Unpacking objects: 100% (42/42), done.
         ```
-      In the event that we uncover a bug and the program needs to be updated 
-  6. 
+      In the event that we uncover a bug and the program needs to be updated, you can download the updated version by 
+      going into the `ReportWriter` folder using `$ cd ReportWriter` from `Documents` and then running `$ git pull` 
+      let's go ahead and do that now, just to practice. So one more time, from Documents, you have to do:
+        ```bash
+        $ cd ReportWriter
+        $ git pull
+        Already up-to-date.
+        ```
+      If there is a change that has been downloaded doing the above will yield an output similar to the following 
+      instead:
+        ```bash
+        $ cd ReportWriter
+        $ git pull
+        remote: Counting objects: 3, done.
+        remote: Compressing objects: 100% (3/3), done.
+        remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+        Unpacking objects: 100% (3/3), done.
+        From https://github.com/NesquikMike/ReportWriter
+           18c38b4..a763eb3  master     -> origin/master
+        Updating 18c38b4..a763eb3
+        Fast-forward
+         README.md | 44 +++++++++++++++++++++++++++++++++++++++++++-
+         1 file changed, 43 insertions(+), 1 deletion(-)
+        ```
+  6. We've been doing some pretty new and advanced things here so let's do something a bit easier now and move the 
+  master report word document into the ReportWriter folder. I could have put the master document on the Github 
+  repository, but I was a little worried that that would violate your school's data policy, so I have emailed it to 
+  your gmail account instead, you can find it there. Download it and copy and paste it into the ReportWriter folder 
+  in your Documents folder, as you would in the normal way, no need for the terminal for this. Make sure that once 
+  it is in the ReportWriter folder it is named `master` not `master(1)` or anything like that, this is very important. 
+  You can check that you have done this right by going back into your terminal and from within the ReportWriter 
+  folder doing `$ ls` which should give you the following output (the order of the files may differ) if we have done 
+  everything correctly up to here: 
+        ```bash
+        $ ls
+        README.md		reportWriter.py
+        master.docx		reportWriterPROTO.py
+        ```
+     If this is the case the file structure is all completely set up and we can now move on to setting up python 
+     correctly!
+     
+#### 2. Configuring Python
+
   
 Download Python 3.6
 
