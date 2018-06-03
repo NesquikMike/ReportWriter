@@ -144,7 +144,21 @@ okEnglishSpelling = (
 )
 
 badEnglish = (
-    "{0} has done badly in English. ",
+    "{0} has become an increasingly confident writer as the year has progressed, and {1} is now able to record "
+    "{2} own ideas independently in {2} English book. {0} is always keen to share {2} imaginative ideas during "
+    "class discussions, and it has been a delight to see the progress which {1} has made with {2} handwriting and "
+    "spelling since the start of the year. {0}'s writing stamina has increased considerably and {1} can now "
+    "confidently form full sentences in writing. {4} use of full stops, capital letters and finger spaces is "
+    "increasingly consistent. I would like to see {0} continue to practise {2} spellings of high frequency and "
+    "tricky words, so that {2} writing is fluent and consistently comprehensible. ",
+    "I am pleased with {0}'s steady progress in English, and it has been a pleasure to see {0} grow "
+    "in confidence as a writer over the course of the year. {0} is now able to write down {2} own ideas "
+    "independently on paper, and {2} writing stamina has improved considerably as the year has progressed. "
+    "{3} is able to distinguish between upper and lower case letters and is beginning to use full stops and capital "
+    "letters with increasing accuracy. {0} has frequently demonstrated {2} ability to form a full sentence in "
+    "writing, and {1} can use 'and' confidently in sentences in order to expand and develop {2} writing. "
+    "{3} is beginning to use time connectives to write a structured recount, and {2} correct spelling of high "
+    "frequency words is improving steadily. "
 )
 
 goodPhonicsOverall = (
@@ -192,7 +206,20 @@ okPhonicsLastSentence = (
 )
 
 badPhonics = (
-    "{0} has done badly in Phonics. ",
+    "{0}'s progress in phonics has been good. {3} is now able to recognise a large number of the 40+ phonemes "
+    "with increasing confidence. {0} still finds some sounds tricky, and I would like {0} to continue to "
+    "practise {2} phonics sounds as {1} progresses into year two. This will enable him to sound out and blend words "
+    "more efficiently, and will help to improve {2} spelling skills. {0} has become an increasingly confident and "
+    "fluent reader, and {1} frequently shows a readiness to contribute imaginative ideas during whole-class "
+    "reading sessions. ",
+    "{0} is a confident reader who can sound out and blend a number of words accurately. {4} knowledge of the 40+"
+    " phonemes has improved considerably since the start of the year and {1} now has a good knowledge of several"
+    " sounds. I would like {0} to continue to practise these sounds as {1} progresses into year two, so that {1} is"
+    " able to sound out words with greater speed, and so that {1} can continue to develop the accuracy of {2} "
+    "spelling. I am very pleased that {0} is now more confident about contributing to discussions during "
+    "whole-class reading sessions. {0} always makes thoughtful and valuable contributions to class discussions "
+    "and I would like to see {2} continue to grow in confidence when expressing {2} ideas both verbally and "
+    "in writing. "
 )
 
 goodScience = (
