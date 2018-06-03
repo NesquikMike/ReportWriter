@@ -75,7 +75,7 @@ if behaviour < 1 or behaviour > 3:
 goodMathsStart = (
     "{0} has a sound and in-depth understanding of a range of mathematical concepts, and I have been very "
     "impressed by {2} continued progress in maths this year. ",
-    "{0}’s progress in maths this year has been excellent "
+    "{0}’s progress in maths this year has been excellent. "
 )
 
 goodMathsMiddle = (
@@ -86,7 +86,7 @@ goodMathsMiddle = (
     "{3} demonstrates a good awareness of a range of strategies which can be used to solve addition and subtraction "
     "problems, and {1} has a sound knowledge of place value. {3} has begun to develop strategies for solving equations "
     "involving two-digit numbers, and presents {2} working out neatly in {2} maths book. {0} is a confident "
-    "problem solver, and is able to explain {2} answers clearly and concisely both verbally and in writing."
+    "problem solver, and is able to explain {2} answers clearly and concisely both verbally and in writing. "
 )
 
 goodMathsEnd = (
