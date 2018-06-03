@@ -156,8 +156,6 @@ This markdown file is an instructional guide on how to install and use the Repor
      
  ## Using the Report Writer
  
- #### 1. Moving into the correct folder on the Terminal
- 
    1. Open your Terminal and move into your Documents folder by doing:
         ```bash
         $ cd Documents
