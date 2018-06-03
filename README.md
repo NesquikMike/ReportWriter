@@ -7,10 +7,10 @@ This markdown file is an instructional guide on how to install and use the Repor
   
   1. Press the magnifying glass icon in the top right hand corner of the screen and type in `terminal` and press Enter. 
    
-  2. Your Terminal should now be open. And should have written on the last line something along the lines of: 
+  2. Your Terminal should now be open. It should have written on the last line something along the lines of: 
   `Honigs-MacBook-Air:~ honigschnitzel$` Don't worry if it does not have exactly this written on it. The important thing 
   is that it has `~` (This is your current directory, which is your home directory, i.e. where you start when you first
-  open a Terminal) and `$` (This is the symbol that usually precedes an instruction to the computer)in the right places.
+  open a Terminal) and `$` (This is the symbol that usually precedes an instruction to the computer) in the right places.
    Let's go ahead and pin the Terminal to your dock so that you don't have to keep searching for it to open it. 
   Right click on your open Terminal in the dock and go to `Options` and click `Keep in Dock` like in the image below: 
   ![alt text](https://cms-assets.tutsplus.com/uploads/users/53/posts/23318/image/pinterminaltodock.png
@@ -78,7 +78,8 @@ This markdown file is an instructional guide on how to install and use the Repor
         Unpacking objects: 100% (42/42), done.
         ```
       In the event that we uncover a bug and the program needs to be updated, you can download the updated version by 
-      going into the `ReportWriter` folder using `$ cd ReportWriter` from `Documents` and then running `$ git pull` 
+      going into the `ReportWriter` folder using `$ cd ReportWriter` from the `Documents` folder and then running 
+      `$ git pull` 
       let's go ahead and do that now, just to practice. So one more time, from Documents, you have to do:
         ```bash
         $ cd ReportWriter
@@ -122,17 +123,17 @@ This markdown file is an instructional guide on how to install and use the Repor
 
   1. This bit might be finnicky so feel free to phone me if something goes wrong! Firstly I remember you mentioning 
   that you might update your computer in which case it might have updated 
-  Python 3 for you. Let's check this exit your current Terminal and open a new one, then do `$ python3 --version` 
+  Python 3 for you. Let's check this. Exit your current Terminal and open a new one, then do `$ python3 --version` 
   if you get an output along the lines of:
         ```bash
         $ python3 --version
         Python 3.6.1
         ```
       then we can skip to the next step! If instead it says something along the lines of `Python 2.7` or something 
-      else completely differently then we need to install Python 3! You can do this by following the instructions in 
+      else completely different then we need to install Python 3! You can do this by following the instructions in 
       this video: [How to Install Python 3 on Mac](https://www.youtube.com/watch?v=0hGzGdRQeak)
       
-  2. Now that Python 3 is installed. We are going to install a package that will allow python to use 
+  2. Now that Python 3 is installed. We are going to install a package that will allow Python to use 
   Microsoft Word documents. To do this run 
         ```
         $ sudo pip3 install python-docx
@@ -173,7 +174,7 @@ This markdown file is an instructional guide on how to install and use the Repor
         ```
       Where the place holder in each of the square brackets represents what you're inputting for said student. To 
       give an example of an outstanding student:
-        ```bash
+        ```
         $ python3 reportWriter.py Angela Merkel f 3 3 3 3 3 3 3
                 
         RELIGIOUS STUDIES: 
@@ -199,15 +200,16 @@ This markdown file is an instructional guide on how to install and use the Repor
         ```
       Gender can be entered as `f` for female and `m` for male. Subjects are ordered as they will be in the report,
       like so: Religious Education, English, Phonics, Maths, Science and Other Subjects. Finally, goes a score for 
-      behaviour. The scores range from one to three, the higher the better. So inputting a 3 for Science report 
-      will give the student a Science report that reflects the fact that they "above year group expectations". 
+      behaviour. The scores range from one to three, the higher the better. So inputting a 3 for Science 
+      will give the student a Science report that reflects the fact that they are "above year group expectations". 
       It will also give them an "Ab" for their achievement in that subject. Running this command will output a 
       Microsoft Word docx file of a school report for said student. This report can be found in the normal way by 
-      going into your Documents folder and then into the ReportWriter folder. From there you can do as you please 
+      going into your Documents folder and then into the ReportWriter folder, no need for the Terminal. 
+      From there you can do as you please 
       with the reports. It will also print the reports for each subject in the Terminal so that it is clear the 
-      program has run successfully. Once you have run it you can run it again if you are not happy with that 
+      program has run successfully. Once you have run it, you can run it again if you are not happy with that 
       specific report and would prefer a different randomised report. An easy shortcut so that you don't have to 
-      retype into the terminal is just the press the up button on the keyboard in the terminal which will paste 
+      retype into the terminal is just to press the up button on the keyboard in the terminal which will paste 
       the previous command that was executed by the terminal without yet executing it, so you can also edit it if 
       you would prefer to change something like their name or their rating in a specific subject. You can also just 
       keep using the up button and changing the inputs for each student so that you don't have to keep typing 
