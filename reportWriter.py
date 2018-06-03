@@ -401,14 +401,22 @@ report += "\n"
 
 report += "\nMATHS: \n"
 if maths == 1:
-    x = random.randint(0, len(badMaths) - 1)
-    mathsReport += badMaths[x]
+    x = random.randint(0, len(badMathsStart) - 1)
+    mathsReport += badMathsStart[x]
+    x = random.randint(0, len(badMathsEnd) - 1)
+    mathsReport += badMathsEnd[x]
 elif maths == 2:
-    x = random.randint(0, len(okMaths) - 1)
-    mathsReport += okMaths[x]
+    x = random.randint(0, len(okMathsStart) - 1)
+    mathsReport += okMathsStart[x]
+    x = random.randint(0, len(okMathsEnd) - 1)
+    mathsReport += okMathsEnd[x]
 else:
-    x = random.randint(0, len(goodMaths) - 1)
-    mathsReport += goodMaths[x]
+    x = random.randint(0, len(goodMathsStart) - 1)
+    mathsReport += goodMathsStart[x]
+    x = random.randint(0, len(goodMathsMiddle) - 1)
+    mathsReport += goodMathsMiddle[x]
+    x = random.randint(0, len(goodMathsMiddle) - 1)
+    mathsReport += goodMathsMiddle[x]
 
 report += mathsReport
 report += "\n"
