@@ -6,7 +6,7 @@ document = Document('master.docx')
 
 if len(sys.argv) < 9:
     print("ERROR: Not enough information. Please provide First Name, Last Name, Gender - f for female, m for male,"
-          " RE, English, Phonics, Maths, Science, Other Subjects and Behaviour "
+          " RE, English, Phonics, Maths, Science"
           "- where 1 is bad, 2 is ok, 3 is good attainment or behaviour.")
     exit()
 
@@ -69,10 +69,6 @@ elif gender == "m":
     nominalPronounCapitalised = "He"
     possessivePronounCapitalised = "His"
     pointingPronounCapitalised = "Him"
-
-if behaviour < 1 or behaviour > 3:
-    print("Please insert a valid value for Behaviour - where 1 is bad, 2 is ok, 3 is good Behaviour.")
-    exit()
 
 goodMathsStart = (
     "{0} has a sound and in-depth understanding of a range of mathematical concepts, and I have been very "
@@ -412,8 +408,8 @@ else:
     x = random.randint(0, len(goodReligStudyEnd) - 1)
     religStudyReport += goodReligStudyEnd[x]
 
+religStudyReport += "\n"
 report += religStudyReport
-report += "\n"
 
 report += "\nENGLISH: \n"
 if english == 1:
@@ -452,8 +448,8 @@ else:
     x = random.randint(0, len(goodPhonicsReading) - 1)
     englishReport += goodPhonicsReading[x]
 
+englishReport += "\n"
 report += englishReport
-report += "\n"
 
 report += "\nMATHS: \n"
 if maths == 1:
@@ -474,8 +470,8 @@ else:
     x = random.randint(0, len(goodMathsMiddle) - 1)
     mathsReport += goodMathsMiddle[x]
 
+mathsReport += "\n"
 report += mathsReport
-report += "\n"
 
 report += "\nSCIENCE: \n"
 if science == 1:
@@ -492,15 +488,16 @@ else:
     x = random.randint(0, len(goodScienceEnd) - 1)
     scienceReport += goodScienceEnd[x]
 
+scienceReport += "\n"
 report += scienceReport
-report += "\n"
+
 
 report += "\nGENERAL COMMENTS: \n"
 x = random.randint(0, len(goodOtherSubjects) - 1)
 generalReport += goodOtherSubjects[x]
 
+generalReport += "\n"
 report += generalReport
-report += "\n"
 
 religStudyReport = religStudyReport.format(firstName,
                        nominalPronoun,
@@ -594,6 +591,31 @@ def addSubjectAttainment(subject, subjectAttainment):
                                                         return
 
 
+def addOtherSubjectsReport(otherReport):
+    step = 0
+    for table in document.tables:
+        lstColumn = iter(table.columns)
+        lstColumn2 = iter(table.columns)
+        for column in lstColumn:
+            for cell in column.cells:
+                for paragraph in cell.paragraphs:
+                    if 'Other Subjects' in paragraph.text:
+                        lstRow = iter(table.rows)
+                        for columnExtra in lstColumn:
+                            for cellExtra in columnExtra.cells:
+                                for paraExtra in cellExtra.paragraphs:
+                                    if 'Comment' in paraExtra.text:
+                                        next(lstRow)
+                                        for row in lstRow:
+                                            for rowCell in row.cells:
+                                                for rowCellPara in rowCell.paragraphs:
+                                                    if rowCellPara.text == "" and step == 2:
+                                                        rowCellPara.add_run(otherReport)
+                                                        return
+                                                    elif rowCellPara.text == "" and step != 2:
+                                                        step += 1
+                                                    
+                                                    
 def addSubjectReportText(subject, subjectReport):
     for table in document.tables:
         for row in table.rows:
@@ -618,6 +640,7 @@ addSubjectReport('Religious Education', religStudyReport, religStudy)
 addSubjectReport('English', englishReport, (english + phonics) // 2)
 addSubjectReport('Mathematics', mathsReport, maths)
 addSubjectReport('Science', scienceReport, science)
+addOtherSubjectsReport(generalReport)
 
 documentName = firstName + lastName + '.docx'
 document.save(documentName)

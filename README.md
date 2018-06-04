@@ -168,12 +168,12 @@ This markdown file is an instructional guide on how to install and use the Repor
         ```
    3. Now we can produce a report. To do so enter the following into the terminal:
         ```bash
-        $ python3 reportWriter.py [First Name] [Last Name] [Gender] [Religious Education] [English] [Phonics] [Maths] [Science] [OtherSubjects] [Behaviour]
+        $ python3 reportWriter.py [First Name] [Last Name] [Gender] [Religious Education] [English] [Phonics] [Maths] [Science]
         ```
       Where the place holder in each of the square brackets represents what you're inputting for said student. To 
       give an example of an outstanding student:
         ```
-        $ python3 reportWriter.py Angela Merkel f 3 3 3 3 3 3 3
+        $ python3 reportWriter.py Angela Merkel f 3 3 3 3 3
                 
         RELIGIOUS STUDIES: 
         Angela has done brilliantly in Religious Studies. 
@@ -194,11 +194,11 @@ This markdown file is an instructional guide on how to install and use the Repor
         ``` 
       Last Names can be entered in using speech marks if they have multiple names, for instance:
         ```bash
-        $ python3 reportWriter.py Willy "Von Gammler" m 3 2 3 1 1 1 2
+        $ python3 reportWriter.py Willy "Von Gammler" m 3 2 3 1 1
         ```
       Gender can be entered as `f` for female and `m` for male. Subjects are ordered as they will be in the report,
-      like so: Religious Education, English, Phonics, Maths, Science and Other Subjects. Finally, goes a score for 
-      behaviour. The scores range from one to three, the higher the better. So inputting a 3 for Science 
+      like so: Religious Education, English, Phonics, Maths and Science. The scores range from one to three, the 
+      higher the better. So inputting a 3 for Science 
       will give the student a Science report that reflects the fact that they are "above year group expectations". 
       It will also give them an "Ab" for their achievement in that subject. Running this command will output a 
       Microsoft Word docx file of a school report for said student. This report can be found in the normal way by 
