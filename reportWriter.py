@@ -279,28 +279,114 @@ badPhonics = (
     "in writing. "
 )
 
-goodScience = (
-    "{0} has done brilliantly in Science. ",
+goodScienceStart = (
+    "{0} has enjoyed working practically during science lessons this year and has made good progress. {0} has "
+    "made insightful and interesting contributions to classroom discussions and {1} shows excellent scientific "
+    "reasoning skills. ",
+    "{0} is confident in {2} use of scientific vocabulary, and has made interesting and nuanced comments "
+    "during classroom discussions. {4} scientific reasoning is excellent and {1} can record {2} findings in "
+    "a range of ways. "
+)
+
+goodScienceEnd = (
+    "{0} has been able to record {2} findings in tables and in writing, and has demonstrated a sound understanding "
+    "of the properties of materials, as well as seasons and temperature. ",
+    "{3} demonstrates a very good understanding of the properties of materials and showed excellent enquiry "
+    "skills during an investigation about opaque and transparent materials. "
 )
 
 okScience = (
-    "{0} has done ok in Science. ",
+    "{0} has enjoyed taking part in a variety of scientific experiments this year and has developed {2} "
+    "reasoning skills. {3} is beginning to record {2} findings in a range of ways and has been able to identify "
+    "various materials and some of their properties. {0} is beginning to develop {2} use of scientific "
+    "vocabulary, and has made successful comparisons between humans, plants and animals. ",
+    "{0} has shown an interest and curiosity to know more in science this year and {1} is beginning to use "
+    "scientific language more confidently and accurately. When carrying out experiments, {0} is able to make "
+    "sensible predictions and conclusions. {3} is beginning to record {2} ideas in charts and in writing, and has "
+    "shown a good understanding of the properties of a range of materials. ",
+    "{0} has expressed enthusiasm and intrigue when taking part in a range of scientific experiments this "
+    "year. {3} is starting to record {2} findings in a variety of different forms, and is beginning to use "
+    "scientific vocabulary to explain {2} ideas. I have been impressed by {0}’s thoughtful contributions to "
+    "class discussions in science lessons and {1} can indentify a range of materials and their properties. "
 )
 
-badScience = (
-    "{0} has done badly in Science. ",
+badScienceStart = (
+    "{0} has enjoyed working practically during science this year and has shown an interest in the process of "
+    "scientific investigation. ",
+    "{0} has shown an interest in science this year, and has worked well with {2} peers during "
+    "scientific investigations. "
 )
 
-goodReligStudy = (
-    "{0} has done brilliantly in Religious Studies. ",
+badScienceEnd = (
+    "{3} is good at collaborating with {2} peers and has been able to make simple predictions. {3} contributes "
+    "increasingly frequently during class discussions and can identify and describe a range of materials. ",
+    "{3} is beginning to use simple scientific language to explain {2} ideas, and successfully identified some "
+    "opaque, transparent and translucent materials during an experiment about light and shadow. "
+)
+
+goodReligStudyStart = (
+    "{0} has made excellent progress during R.E this year. ",
+    "{0} has progressed very well in R.E this year. "
+)
+
+goodReligStudyEnd = (
+    "{3} has shown a high level of respect when listening to Bible stories and has been able to draw meaning "
+    "from them, as well as retell these stories in {2} own words, using a range of religious terminology. {3} has "
+    "made frequent, insightful contributions to class discussions on a range of topics, such as the role of the "
+    "church in the religious community. {3} can eloquently explain the meaning of important religious festivals, "
+    "such as Christmas, Easter and Pentecost. {0} engages in class and assembly worship in a consistently "
+    "prayerful and respectful manner, and demonstrates a good knowledge of the role which God plays "
+    "in our own lives. ",
+    "{3} acts in a prayerful and mature manner during times of collective worship, and is able to recall and "
+    "lead prayers confidently and accurately. {3} listens respectfully and attentively to religious stories "
+    "during R.E lessons, and demonstrates a sound understanding of the link between the teachings of the Bible "
+    "and the ways in which God helps us in our own lives. {0} can explain the meaning of these stories both "
+    "verbally and in writing, and consistently makes a range of insightful and thoughtful contributions to class "
+    "discussions. {3} has shown an excellent understanding of the meaning of important religious festivals, such as "
+    "Christmas, Easter and Pentecost. "
 )
 
 okReligStudy = (
-    "{0} has done ok in Religious Studies. ",
+    "{0} has made good progress in R.E this year. {3} has listened to religious stories with increasing "
+    "attention throughout the year and always shows a high level of respect during times of collective worship "
+    "in the classroom and in assemblies. {0} is able to explain the meaning of Biblical stories in {2} own "
+    "words with increasing confidence and has developed {2} understanding of the role which God plays in our own "
+    "lives. {0} can recall important prayers well and participates enthusiastically during class discussions. "
+    "{3} demonstrates a good understanding of the meaning of important religious festivals, such as Christmas, "
+    "Easter and Pentecost. ",
+    "{0} always acts prayerfully and respectfully during times of collective worship and has engaged well "
+    "during class discussions on a range of topics, such as the role of the church within the community. {3} is "
+    "able to draw meaning from religious stories during lessons and can retell these stories in {2} own words "
+    "using simple religious vocabulary. {3} shows a good knowledge of important religious festivals, such as "
+    "Christmas, Easter and Pentecost, and can explain their significance. {0} is increasingly able to make "
+    "the link between the teachings of the Bible and the way in which God helps us in our own lives. ",
+    "{0} has enjoyed listening to a variety of Biblical stories over the course of the year and {1} responds "
+    "to them well by frequently contributing to class discussions on a range of topics. {3} is beginning to "
+    "understand the messages which these stories convey and can retell their events using simple religious "
+    "vocabulary. {0} has written some good recounts of important religious festivals, such as Christmas, Easter "
+    "and Pentecost and can explain their meaning and significance. {0} always acts respectfully and prayerfully "
+    "during times of collective worship, and is beginning to shown an understanding of how God helps us in "
+    "our own lives. "
 )
 
-badReligStudy = (
-    "{0} has done badly in Religious Studies. ",
+badReligStudyStart = (
+    "{0} has shown maturity and respect during times of collective worship both in the classroom and in "
+    "assemblies. {3} joins in confidently with important prayers and hymns and listens attentively to religious "
+    "stories. {3} is beginning to retell some of these stories in {2} own words and recently demonstrated a good "
+    "understanding of the story of Pentecost by sequencing the events correctly. ",
+    "{0} has listened to religious stories during R.E lessons with increasing attention throughout the year and "
+    "is beginning to draw meaning from them. {3} has become more confident about retelling the main events of these "
+    "stories, and can identify important religious festivals, such as Christmas, Easter and Pentecost. "
+)
+
+badReligStudyEnd = (
+    "{0} has begun to contribute more frequently to class discussions, and I would like to see {0} develop "
+    "{2} confidence in sharing {2} ideas with {2} peers, as {1} has lots of thoughtful and interesting ideas to "
+    "share. {0} is beginning to show an understanding the ways in which God helps us in our own lives, and {1} "
+    "lives out Christian values every day by showing {2} peers kindness and respect. ",
+    "{3} is beginning to explain the significance and meaning of the events and is starting to link the meaning of "
+    "these stories, to the way in which God helps us in own lives. {3} shows a good understanding of Christians "
+    "values and treats {2} peers with kindness and respect. "
 )
 
 goodOtherSubjects = (
@@ -347,14 +433,18 @@ decent = (
 
 report += "\nRELIGIOUS STUDIES: \n"
 if religStudy == 1:
-    x = random.randint(0, len(badReligStudy) - 1)
-    religStudyReport += badReligStudy[x]
+    x = random.randint(0, len(badReligStudyStart) - 1)
+    religStudyReport += badReligStudyStart[x]
+    x = random.randint(0, len(badReligStudyEnd) - 1)
+    religStudyReport += badReligStudyEnd[x]
 elif religStudy == 2:
     x = random.randint(0, len(okReligStudy) - 1)
     religStudyReport += okReligStudy[x]
 else:
-    x = random.randint(0, len(goodReligStudy) - 1)
-    religStudyReport += goodReligStudy[x]
+    x = random.randint(0, len(goodReligStudyStart) - 1)
+    religStudyReport += goodReligStudyStart[x]
+    x = random.randint(0, len(goodReligStudyEnd) - 1)
+    religStudyReport += goodReligStudyEnd[x]
 
 report += religStudyReport
 report += "\n"
@@ -423,14 +513,18 @@ report += "\n"
 
 report += "\nSCIENCE: \n"
 if science == 1:
-    x = random.randint(0, len(badScience) - 1)
-    scienceReport += badScience[x]
+    x = random.randint(0, len(badScienceStart) - 1)
+    scienceReport += badScienceStart[x]
+    x = random.randint(0, len(badScienceEnd) - 1)
+    scienceReport += badScienceEnd[x]
 elif science == 2:
     x = random.randint(0, len(okScience) - 1)
     scienceReport += okScience[x]
 else:
-    x = random.randint(0, len(goodScience) - 1)
-    scienceReport += goodScience[x]
+    x = random.randint(0, len(goodScienceStart) - 1)
+    scienceReport += goodScienceStart[x]
+    x = random.randint(0, len(goodScienceEnd) - 1)
+    scienceReport += goodScienceEnd[x]
 
 report += scienceReport
 report += "\n"
