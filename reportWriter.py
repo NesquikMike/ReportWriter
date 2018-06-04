@@ -4,7 +4,7 @@ from docx import Document
 
 document = Document('master.docx')
 
-if len(sys.argv) < 11:
+if len(sys.argv) < 9:
     print("ERROR: Not enough information. Please provide First Name, Last Name, Gender - f for female, m for male,"
           " RE, English, Phonics, Maths, Science, Other Subjects and Behaviour "
           "- where 1 is bad, 2 is ok, 3 is good attainment or behaviour.")
@@ -46,12 +46,12 @@ if religStudy < 1 or religStudy > 3:
           " 3 is good Attainment.")
     exit()
 
-otherSubjects = int(sys.argv[9])
-behaviour = int(sys.argv[10])
 nominalPronoun = "she"
 possessivePronoun = "her"
+pointingPronoun = "her"
 nominalPronounCapitalised = "She"
 possessivePronounCapitalised = "Her"
+pointingPronounCapitalised = "Her"
 report = ""
 religStudyReport = ""
 englishReport = ""
@@ -64,9 +64,11 @@ if gender != "m" and gender != "f":
     exit()
 elif gender == "m":
     nominalPronoun = "he"
-    possessivePronoun = 'his'
+    possessivePronoun = "his"
+    pointingPronoun = "him"
     nominalPronounCapitalised = "He"
     possessivePronounCapitalised = "His"
+    pointingPronounCapitalised = "Him"
 
 if behaviour < 1 or behaviour > 3:
     print("Please insert a valid value for Behaviour - where 1 is bad, 2 is ok, 3 is good Behaviour.")
@@ -125,7 +127,7 @@ okMathsEnd = (
     "begin to apply {2} number facts to 10 and 20 when solving addition and subtraction problems. {0} presents "
     "{2} work neatly in {2} maths book, and {1} can now confidently write simple equations.  {3} is beginning to "
     "demonstrate {2} working out in writing in {2} maths book, and uses concrete resources, such as the Dienes "
-    "blocks and string-beads to help {2} solve problems. {0} is increasingly able to show the link between "
+    "blocks and string-beads to help {5} solve problems. {0} is increasingly able to show the link between "
     "concrete resources, such as the string-beads or cubes and abstract representations. "
 )
 
@@ -141,11 +143,11 @@ badMathsEnd = (
     "increasing clarity. I would like {0} to practise recalling {2} number bonds to 10 quickly and correctly, so "
     "that {1} can apply these number facts when solving addition and subtraction facts. {0} is developing a "
     "sounder knowledge of place value, and is increasingly confident when using concrete resources such as the "
-    "Dienes blocks and bead-strings to help him solve maths problems. ",
-    "{3} is able to utilise concrete resources, such as the Dienes blocks and bead-strings to help {2} solve "
+    "Dienes blocks and bead-strings to help {5} solve maths problems. ",
+    "{3} is able to utilise concrete resources, such as the Dienes blocks and bead-strings to help {5} solve "
     "maths problems, and {1} has gained a sounder knowledge of number bonds to 10. I would like {0} to continue "
     "practising number facts to 10, and to begin consolidating number facts to 20. A good understanding of these "
-    "will help {2} when solving more complicated addition and subtraction problems. {0} can confidently and "
+    "will help {5} when solving more complicated addition and subtraction problems. {0} can confidently and "
     "correctly write the majority of numbers from 0 to 100, and has developed {2} understanding of more than and "
     "less than. {3} can also order numbers according to size with increasing confidence. {0} is developing {2} "
     "knowledge of tens and ones, and is beginning to write complete sums in {2} book correctly. {0} should "
@@ -194,8 +196,8 @@ okEnglishSpelling = (
     " {2} correct spelling of high frequency and tricky words has improved considerably since the start of the year. ",
     "{4} accurate spelling of high frequency and tricky words is steadily improving, and {0} should continue to"
     " apply {2} knowledge of phonemes when sounding out and spelling words. {0} is developing {2} knowledge and use of"
-    " adjectives, and I have seen {2} use a range of time connectives to write a well-structured recount. ",
-    "{0} has a sound knowledge of phase 3 and 4 high frequency words and I would like to see {2} develop more"
+    " adjectives, and I have seen {5} use a range of time connectives to write a well-structured recount. ",
+    "{0} has a sound knowledge of phase 3 and 4 high frequency words and I would like to see {5} develop more"
     " confidence with spelling phase 5 tricky words. {0} is a confident and imaginative writer and has developed"
     " {2} knowledge of a range of adjectives to enhance {2} writing. "
 )
@@ -265,7 +267,7 @@ okPhonicsLastSentence = (
 badPhonics = (
     "{0}'s progress in phonics has been good. {3} is now able to recognise a large number of the 40+ phonemes "
     "with increasing confidence. {0} still finds some sounds tricky, and I would like {0} to continue to "
-    "practise {2} phonics sounds as {1} progresses into year two. This will enable him to sound out and blend words "
+    "practise {2} phonics sounds as {1} progresses into year two. This will enable {5} to sound out and blend words "
     "more efficiently, and will help to improve {2} spelling skills. {0} has become an increasingly confident and "
     "fluent reader, and {1} frequently shows a readiness to contribute imaginative ideas during whole-class "
     "reading sessions. ",
@@ -275,7 +277,7 @@ badPhonics = (
     " able to sound out words with greater speed, and so that {1} can continue to develop the accuracy of {2} "
     "spelling. I am very pleased that {0} is now more confident about contributing to discussions during "
     "whole-class reading sessions. {0} always makes thoughtful and valuable contributions to class discussions "
-    "and I would like to see {2} continue to grow in confidence when expressing {2} ideas both verbally and "
+    "and I would like to see {5} continue to grow in confidence when expressing {2} ideas both verbally and "
     "in writing. "
 )
 
@@ -390,45 +392,9 @@ badReligStudyEnd = (
 )
 
 goodOtherSubjects = (
-    "{0} has done well in {2} other subjects. ",
-)
-
-okOtherSubjects = (
-    "{0} has done ok in other subjects. ",
-)
-
-badOtherSubjects = (
-    "{0} has done badly in other subjects. ",
-)
-
-goodBehaviour = (
-    "{0} is very well behaved and sets a fantastic example to {2} peers. ",
-    "{0} is always ready to learn and leads the classroom in behaviour. ",
-    "{0} is delightful to work with and always gives 100%. "
-)
-
-okBehaviour = (
-    "{0} generally behaves well, but is occasionally distracted by classmates. ",
-    "{0} can be distracted by others, but generally is studious and applies a good work ethic. ",
-    "{0}'s behaviour is inconsistent, {2} at times sets a fantastic example while at other times is very disruptive. "
-)
-
-badBehaviour = (
-    "{0} is too chatty sometimes and would do well not to stay focused on {2} work instead of distracting others. ",
-    "{0}'s energy needs to be applied more to studies and less to playing with classmates. ",
-    "{0} is a disruptive influence in the class and would benefit from focusing more in lessons. "
-)
-praise = (
-    "Great work {0}!",
-    "Excellent {0}!",
-    "Superb {0}!",
-    "Keep up the excellent work {0}!"
-)
-
-decent = (
-    "Keep it up {0}!",
-    "Push it to next level {0}!",
-    "Work harder to show more of your ability {0}!"
+    "{0} has worked very well across all areas of the curriculum. {3} shows an enthusiasm and interest "
+    "in many areas, such as ",
+    "{0} has applied {5}self well across all areas of the curriculum. He has worked particularly well in "
 )
 
 report += "\nRELIGIOUS STUDIES: \n"
@@ -530,25 +496,8 @@ report += scienceReport
 report += "\n"
 
 report += "\nGENERAL COMMENTS: \n"
-if otherSubjects == 1:
-    x = random.randint(0, len(badOtherSubjects) - 1)
-    generalReport += badOtherSubjects[x]
-elif otherSubjects == 2:
-    x = random.randint(0, len(okOtherSubjects) - 1)
-    generalReport += okOtherSubjects[x]
-else:
-    x = random.randint(0, len(goodOtherSubjects) - 1)
-    generalReport += goodOtherSubjects[x]
-
-if behaviour == 1:
-    x = random.randint(0, len(badBehaviour) - 1)
-    generalReport += badBehaviour[x]
-elif behaviour == 2:
-    x = random.randint(0, len(okBehaviour) - 1)
-    generalReport += okBehaviour[x]
-else:
-    x = random.randint(0, len(goodBehaviour) - 1)
-    generalReport += goodBehaviour[x]
+x = random.randint(0, len(goodOtherSubjects) - 1)
+generalReport += goodOtherSubjects[x]
 
 report += generalReport
 report += "\n"
@@ -557,32 +506,44 @@ religStudyReport = religStudyReport.format(firstName,
                        nominalPronoun,
                        possessivePronoun,
                        nominalPronounCapitalised,
-                       possessivePronounCapitalised)
+                       possessivePronounCapitalised,
+                       pointingPronoun,
+                       pointingPronounCapitalised)
 englishReport = englishReport.format(firstName,
                        nominalPronoun,
                        possessivePronoun,
                        nominalPronounCapitalised,
-                       possessivePronounCapitalised)
+                       possessivePronounCapitalised,
+                       pointingPronoun,
+                       pointingPronounCapitalised)
 mathsReport = mathsReport.format(firstName,
                        nominalPronoun,
                        possessivePronoun,
                        nominalPronounCapitalised,
-                       possessivePronounCapitalised)
+                       possessivePronounCapitalised,
+                       pointingPronoun,
+                       pointingPronounCapitalised)
 scienceReport = scienceReport.format(firstName,
                        nominalPronoun,
                        possessivePronoun,
                        nominalPronounCapitalised,
-                       possessivePronounCapitalised)
+                       possessivePronounCapitalised,
+                       pointingPronoun,
+                       pointingPronounCapitalised)
 generalReport = generalReport.format(firstName,
                        nominalPronoun,
                        possessivePronoun,
                        nominalPronounCapitalised,
-                       possessivePronounCapitalised)
+                       possessivePronounCapitalised,
+                       pointingPronoun,
+                       pointingPronounCapitalised)
 report = report.format(firstName,
                        nominalPronoun,
                        possessivePronoun,
                        nominalPronounCapitalised,
-                       possessivePronounCapitalised)
+                       possessivePronounCapitalised,
+                       pointingPronoun,
+                       pointingPronounCapitalised)
 
 
 def delete_paragraph(paragraph):
