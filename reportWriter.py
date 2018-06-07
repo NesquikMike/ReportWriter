@@ -15,7 +15,7 @@ lastName = sys.argv[2]
 fullName = firstName + " " + lastName
 gender = sys.argv[3]
 
-maths = int(sys.argv[4])
+maths = int(sys.argv[7])
 
 if maths < 1 or maths > 3:
     print("ERROR: Please insert a valid value for Maths Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
@@ -33,13 +33,13 @@ if phonics < 1 or phonics > 3:
     print("ERROR: Please insert a valid value for Phonics Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-science = int(sys.argv[7])
+science = int(sys.argv[8])
     
 if science < 1 or science > 3:
     print("ERROR: Please insert a valid value for Science Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-religStudy = int(sys.argv[8])
+religStudy = int(sys.argv[4])
     
 if religStudy < 1 or religStudy > 3:
     print("ERROR: Please insert a valid value for Religious Study Attainment - where 1 is bad, 2 is ok,"
@@ -96,7 +96,7 @@ goodMathsEnd = (
 
 okMathsStart = (
     "{0} has demonstrated a good knowledge of basic mathematical concepts this year. ",
-    "{0} has progressed well in maths this year.  ",
+    "{0} has progressed well in maths this year. ",
     "I have been pleased with {0}’s progress in maths this year. "
 )
 
@@ -108,7 +108,7 @@ okMathsEnd = (
     "the relationship between concrete resources and abstract representations of equations, and can use resources, "
     "such as the Dienes blocks and string-beads to prove {2} answers. I would like to see {0} continue to develop "
     "{2} verbal reasoning and understanding of mathematical terminology. ",
-    "e can use simple mathematical terms to explain {2} thinking, and is confident about sharing ideas during "
+    "{3} can use simple mathematical terms to explain {2} thinking, and is confident about sharing ideas during "
     "maths discussions on the carpet. {0} can correctly write numbers from 0 to 100, and can efficiently recall "
     "{2} number bonds to 10. {3} is developing {2} ability to use {2} number facts to 10 and 20 when solving "
     "addition and subtraction problems, and can now write simple equations clearly in {2} book. {3} is beginning "
