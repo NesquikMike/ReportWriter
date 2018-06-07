@@ -94,6 +94,22 @@ goodMathsEnd = (
     "can confidently link these representations to abstract equations. "
 )
 
+goodMaths = (
+    goodMathsStart[0] + goodMathsMiddle[0] + goodMathsEnd[0],
+    goodMathsStart[0] + goodMathsMiddle[1] + goodMathsEnd[0],
+    goodMathsStart[0] + goodMathsMiddle[0] + goodMathsEnd[1],
+    goodMathsStart[0] + goodMathsMiddle[1] + goodMathsEnd[1],
+    goodMathsStart[1] + goodMathsMiddle[0] + goodMathsEnd[0],
+    goodMathsStart[1] + goodMathsMiddle[1] + goodMathsEnd[0],
+    goodMathsStart[1] + goodMathsMiddle[0] + goodMathsEnd[1],
+    goodMathsStart[1] + goodMathsMiddle[1] + goodMathsEnd[1],
+    "Maths is a particular strength of {0}’s and I have been highly impressed by the column addition "
+    "and subtraction which {1} has brought in to show the class. {0} often tells me {1} would like to be "
+    "given trickier work. Whilst {0} does have an excellent understanding of the basic principles underpinning "
+    "key concepts in a range of subjects, I would like {5} to understand the importance of continuing to "
+    "consolidate basic concepts before moving on to harder work. "
+)
+
 okMathsStart = (
     "{0} has demonstrated a good knowledge of basic mathematical concepts this year. ",
     "{0} has progressed well in maths this year. ",
@@ -463,12 +479,8 @@ elif maths == 2:
     x = random.randint(0, len(okMathsEnd) - 1)
     mathsReport += okMathsEnd[x]
 else:
-    x = random.randint(0, len(goodMathsStart) - 1)
-    mathsReport += goodMathsStart[x]
-    x = random.randint(0, len(goodMathsMiddle) - 1)
-    mathsReport += goodMathsMiddle[x]
-    x = random.randint(0, len(goodMathsMiddle) - 1)
-    mathsReport += goodMathsMiddle[x]
+    x = random.randint(0, len(goodMaths) - 1)
+    mathsReport += goodMaths[x]
 
 mathsReport += "\n"
 report += mathsReport
