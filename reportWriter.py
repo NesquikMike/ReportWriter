@@ -81,9 +81,8 @@ goodMathsMiddle = (
     "and is able to use mathematical reasoning to prove {2} answers both verbally and in writing. {3} takes "
     "great care with the presentation of {2} sums in {2} maths book. ",
     "{3} demonstrates a good awareness of a range of strategies which can be used to solve addition and subtraction "
-    "problems, and is able to explain {2} answers clearly both verbally and in writing. {3} has begun to develop "
-    "strategies for solving equations involving two-digit numbers, and presents {2} working out neatly in {2} "
-    "maths book. "
+    "problems, and is able to explain {2} answers clearly both verbally and in writing. {3} can solve equations "
+    "involving two-digit numbers, and presents {2} working out neatly in {2} maths book. "
 )
 
 goodMathsEnd = (
