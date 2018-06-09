@@ -102,12 +102,7 @@ goodMaths = (
     goodMathsStart[1] + goodMathsMiddle[0] + goodMathsEnd[0],
     goodMathsStart[1] + goodMathsMiddle[1] + goodMathsEnd[0],
     goodMathsStart[1] + goodMathsMiddle[0] + goodMathsEnd[1],
-    goodMathsStart[1] + goodMathsMiddle[1] + goodMathsEnd[1],
-    "Maths is a particular strength of {0}’s and I have been highly impressed by the column addition "
-    "and subtraction which {1} has brought in to show the class. {0} often tells me {1} would like to be "
-    "given trickier work. Whilst {0} does have an excellent understanding of the basic principles underpinning "
-    "key concepts in a range of subjects, I would like {5} to understand the importance of continuing to "
-    "consolidate basic concepts before moving on to harder work. "
+    goodMathsStart[1] + goodMathsMiddle[1] + goodMathsEnd[1]
 )
 
 okMathsStart = (
