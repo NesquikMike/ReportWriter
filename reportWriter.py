@@ -429,8 +429,7 @@ else:
     x = random.randint(0, len(goodReligStudyEnd) - 1)
     religStudyReport += goodReligStudyEnd[x]
 
-religStudyReport += "\n"
-report += religStudyReport
+report += religStudyReport + "\n"
 
 report += "\nENGLISH: \n"
 if english == 1:
@@ -469,8 +468,7 @@ else:
     x = random.randint(0, len(goodPhonicsReading) - 1)
     englishReport += goodPhonicsReading[x]
 
-englishReport += "\n"
-report += englishReport
+report += englishReport + "\n"
 
 report += "\nMATHS: \n"
 if maths == 1:
@@ -487,8 +485,7 @@ else:
     x = random.randint(0, len(goodMaths) - 1)
     mathsReport += goodMaths[x]
 
-mathsReport += "\n"
-report += mathsReport
+report += mathsReport + "\n"
 
 report += "\nSCIENCE: \n"
 if science == 1:
@@ -505,16 +502,14 @@ else:
     x = random.randint(0, len(goodScienceEnd) - 1)
     scienceReport += goodScienceEnd[x]
 
-scienceReport += "\n"
-report += scienceReport
+report += scienceReport + "\n"
 
 
 report += "\nGENERAL COMMENTS: \n"
 x = random.randint(0, len(goodOtherSubjects) - 1)
 generalReport += goodOtherSubjects[x]
 
-generalReport += "\n"
-report += generalReport
+report += generalReport + "\n"
 
 religStudyReport = religStudyReport.format(firstName,
                        nominalPronoun,
