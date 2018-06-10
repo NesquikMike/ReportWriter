@@ -1,8 +1,20 @@
 import sys
 import random
 from docx import Document
+from docx.shared import Pt
+from docx.enum.style import WD_STYLE_TYPE
 
 document = Document('master.docx')
+
+obj_styles = document.styles
+obj_reportStyle = obj_styles.add_style('ReportStyle', WD_STYLE_TYPE.CHARACTER)
+obj_font = obj_reportStyle.font
+obj_font.size = Pt(10)
+obj_font.name = 'Calibri'
+
+obj_nameStyle = obj_styles.add_style('NameStyle', WD_STYLE_TYPE.CHARACTER)
+obj_name_font = obj_nameStyle.font
+obj_name_font.name = 'Calibri'
 
 if len(sys.argv) < 9:
     print("ERROR: Not enough information. Please provide First Name, Last Name, Gender - f for female, m for male,"
@@ -399,7 +411,7 @@ badReligStudyEnd = (
 goodOtherSubjects = (
     "{0} has worked very well across all areas of the curriculum. {3} shows an enthusiasm and interest "
     "in many areas, such as ",
-    "{0} has applied {5}self well across all areas of the curriculum. He has worked particularly well in "
+    "{0} has applied {5}self well across all areas of the curriculum. {3} has worked particularly well in "
 )
 
 report += "\nRELIGIOUS STUDIES: \n"
@@ -569,11 +581,11 @@ def addDetails():
             for cell in row.cells:
                 for paragraph in cell.paragraphs:
                     if 'Pupil:' in paragraph.text:
-                        paragraph.add_run(" " + fullName)
+                        paragraph.add_run(" " + fullName, style = 'NameStyle')
                     if 'Class:' in paragraph.text:
-                        paragraph.add_run(" Year 1")
+                        paragraph.add_run(" Year 1", style = 'NameStyle')
                     if 'Teacher:' in paragraph.text:
-                        paragraph.add_run(" Miss B. Archibald")
+                        paragraph.add_run(" Miss B. Archibald", style = 'NameStyle')
                         return
 
 
@@ -592,7 +604,7 @@ def addSubjectAttainment(subject, subjectAttainment):
                                             for cellExtraExtra in rowExtraExtra.cells:
                                                 for paraExtraExtra in cellExtraExtra.paragraphs:
                                                     if paraExtraExtra.text == "":
-                                                        paraExtraExtra.add_run(addRating(subjectAttainment))
+                                                        paraExtraExtra.add_run(addRating(subjectAttainment), style = 'ReportStyle')
                                                         return
 
 
@@ -615,7 +627,7 @@ def addOtherSubjectsReport(otherReport):
                                             for rowCell in row.cells:
                                                 for rowCellPara in rowCell.paragraphs:
                                                     if rowCellPara.text == "" and step == 2:
-                                                        rowCellPara.add_run(otherReport)
+                                                        rowCellPara.add_run(otherReport, style = 'ReportStyle')
                                                         return
                                                     elif rowCellPara.text == "" and step != 2:
                                                         step += 1
@@ -628,7 +640,7 @@ def addSubjectReportText(subject, subjectReport):
                 lst = iter(cell.paragraphs)
                 for paragraph in lst:
                     if subject in paragraph.text:
-                        paragraph.add_run("\n" + subjectReport)
+                        paragraph.add_run("\n" + subjectReport, style = 'ReportStyle')
                         for para in lst:
                             delete_paragraph(para)
                         return
@@ -647,7 +659,7 @@ addSubjectReport('Mathematics', mathsReport, maths)
 addSubjectReport('Science', scienceReport, science)
 addOtherSubjectsReport(generalReport)
 
-documentName = firstName + lastName + '.docx'
+documentName = firstName + ' ' + lastName + '.docx'
 document.save(documentName)
 
 print(report)
