@@ -27,35 +27,35 @@ lastName = sys.argv[2]
 fullName = firstName + " " + lastName
 gender = sys.argv[3]
 
-maths = int(sys.argv[7])
+religStudy = int(sys.argv[4][0])
 
-if maths < 1 or maths > 3:
-    print("ERROR: Please insert a valid value for Maths Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
+if religStudy < 1 or religStudy > 3:
+    print("ERROR: Please insert a valid value for Religious Study Attainment - where 1 is bad, 2 is ok,"
+          " 3 is good Attainment.")
     exit()
-        
-english = int(sys.argv[5])
+
+english = int(sys.argv[5][0])
     
 if english < 1 or english > 3:
     print("ERROR: Please insert a valid value for English Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
     
-phonics = int(sys.argv[6])
+phonics = int(sys.argv[6][0])
     
 if phonics < 1 or phonics > 3:
     print("ERROR: Please insert a valid value for Phonics Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
-    
-science = int(sys.argv[8])
+
+maths = int(sys.argv[7][0])
+
+if maths < 1 or maths > 3:
+    print("ERROR: Please insert a valid value for Maths Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
+    exit()
+
+science = int(sys.argv[8][0])
     
 if science < 1 or science > 3:
     print("ERROR: Please insert a valid value for Science Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
-    exit()
-    
-religStudy = int(sys.argv[4])
-    
-if religStudy < 1 or religStudy > 3:
-    print("ERROR: Please insert a valid value for Religious Study Attainment - where 1 is bad, 2 is ok,"
-          " 3 is good Attainment.")
     exit()
 
 nominalPronoun = "she"
