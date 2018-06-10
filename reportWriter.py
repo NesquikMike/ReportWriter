@@ -34,16 +34,55 @@ if religStudy < 1 or religStudy > 3:
           " 3 is good Attainment.")
     exit()
 
+try:
+    religStudyEffort = int(sys.argv[4][1])
+except IndexError:
+    print("ERROR: Please insert a value for Religious Study Effort after the value for attainment, e.g. "
+          "32 means an Ab for Religious Study attainment, because the first number is a 3, and an At for "
+          "Religious Study Effort, because the second number is a 2.")
+    exit()
+
+if religStudyEffort < 1 or religStudyEffort > 3:
+    print("ERROR: Please insert a valid value for Religious Study Effort - where 1 is bad, 2 is ok,"
+          " 3 is good Attainment.")
+    exit()
+
 english = int(sys.argv[5][0])
     
 if english < 1 or english > 3:
     print("ERROR: Please insert a valid value for English Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
-    
+
+try:
+    englishEffort = int(sys.argv[5][1])
+except IndexError:
+    print("ERROR: Please insert a value for English Effort after the value for attainment, e.g. "
+          "32 means an Ab for English attainment, because the first number is a 3, and an At for "
+          "English Effort, because the second number is a 2.")
+    exit()
+
+if englishEffort < 1 or englishEffort > 3:
+    print("ERROR: Please insert a valid value for English Effort - where 1 is bad, 2 is ok,"
+          " 3 is good Attainment.")
+    exit()
+
 phonics = int(sys.argv[6][0])
     
 if phonics < 1 or phonics > 3:
     print("ERROR: Please insert a valid value for Phonics Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
+    exit()
+
+try:
+    phonicsEffort = int(sys.argv[6][1])
+except IndexError:
+    print("ERROR: Please insert a value for Phonics Effort after the value for attainment, e.g. "
+          "32 means an Ab for Phonics attainment, because the first number is a 3, and an At for "
+          "Phonics Effort, because the second number is a 2.")
+    exit()
+
+if phonicsEffort < 1 or phonicsEffort > 3:
+    print("ERROR: Please insert a valid value for Phonics Effort - where 1 is bad, 2 is ok,"
+          " 3 is good Attainment.")
     exit()
 
 maths = int(sys.argv[7][0])
@@ -52,10 +91,36 @@ if maths < 1 or maths > 3:
     print("ERROR: Please insert a valid value for Maths Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
     exit()
 
+try:
+    mathsEffort = int(sys.argv[7][1])
+except IndexError:
+    print("ERROR: Please insert a value for Maths Effort after the value for attainment, e.g. "
+          "32 means an Ab for Maths attainment, because the first number is a 3, and an At for "
+          "Maths Effort, because the second number is a 2.")
+    exit()
+
+if mathsEffort < 1 or mathsEffort > 3:
+    print("ERROR: Please insert a valid value for Maths Effort - where 1 is bad, 2 is ok,"
+          " 3 is good Attainment.")
+    exit()
+
 science = int(sys.argv[8][0])
     
 if science < 1 or science > 3:
     print("ERROR: Please insert a valid value for Science Attainment - where 1 is bad, 2 is ok, 3 is good Attainment.")
+    exit()
+
+try:
+    scienceEffort = int(sys.argv[8][1])
+except IndexError:
+    print("ERROR: Please insert a value for Science Effort after the value for attainment, e.g. "
+          "32 means an Ab for Science attainment, because the first number is a 3, and an At for "
+          "Science Effort, because the second number is a 2.")
+    exit()
+
+if scienceEffort < 1 or scienceEffort > 3:
+    print("ERROR: Please insert a valid value for Science Effort - where 1 is bad, 2 is ok,"
+          " 3 is good Attainment.")
     exit()
 
 nominalPronoun = "she"
@@ -599,8 +664,31 @@ def addSubjectAttainment(subject, subjectAttainment):
                                             for cellExtraExtra in rowExtraExtra.cells:
                                                 for paraExtraExtra in cellExtraExtra.paragraphs:
                                                     if paraExtraExtra.text == "":
-                                                        paraExtraExtra.add_run(addRating(subjectAttainment), style = 'ReportStyle')
+                                                        paraExtraExtra.add_run(addRating(subjectAttainment),
+                                                                               style = 'ReportStyle')
                                                         return
+
+
+def addSubjectEffort(subject, subjectEffort):
+    for table in document.tables:
+        lstColumn = iter(table.columns)
+        lstRow = iter(table.rows)
+        for row in lstRow:
+            for column in lstColumn:
+                for cell in column.cells:
+                    for paragraph in cell.paragraphs:
+                        if subject in paragraph.text:
+                            for colExtra in lstColumn:
+                                for cellExtra in colExtra.cells:
+                                    for paraExtra in cellExtra.paragraphs:
+                                        if 'Effort' in paraExtra.text:
+                                            for rowExtra in lstRow:
+                                                for cellExtraExtra in rowExtra.cells:
+                                                    for paraExtraExtra in cellExtraExtra.paragraphs:
+                                                        if paraExtraExtra.text == "":
+                                                            paraExtraExtra.add_run(addRating(subjectEffort),
+                                                                                   style = 'ReportStyle')
+                                                            return
 
 
 def addOtherSubjectsReport(otherReport):
@@ -641,17 +729,18 @@ def addSubjectReportText(subject, subjectReport):
                         return
 
 
-def addSubjectReport(subject, subjectReport, subjectAttainment):
+def addSubjectReport(subject, subjectReport, subjectAttainment, subjectEffort):
     addSubjectReportText(subject, subjectReport)
+    addSubjectEffort(subject, subjectEffort)
     addSubjectAttainment(subject, subjectAttainment)
     return
 
 
 addDetails()
-addSubjectReport('Religious Education', religStudyReport, religStudy)
-addSubjectReport('English', englishReport, (english + phonics) // 2)
-addSubjectReport('Mathematics', mathsReport, maths)
-addSubjectReport('Science', scienceReport, science)
+addSubjectReport('Religious Education', religStudyReport, religStudy, religStudyEffort)
+addSubjectReport('English', englishReport, (english + phonics) // 2, (englishEffort + phonicsEffort) // 2)
+addSubjectReport('Mathematics', mathsReport, maths, mathsEffort)
+addSubjectReport('Science', scienceReport, science, scienceEffort)
 addOtherSubjectsReport(generalReport)
 
 documentName = firstName + ' ' + lastName + '.docx'
