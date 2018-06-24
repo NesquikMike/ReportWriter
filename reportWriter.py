@@ -135,6 +135,7 @@ englishReport = ""
 mathsReport = ""
 scienceReport = ""
 generalReport = ""
+otherSubjectsReport = ""
 
 if gender != "m" and gender != "f":
     print("Sorry, this gender is not yet supported. Please enter f for female or m for male")
@@ -146,6 +147,30 @@ elif gender == "m":
     nominalPronounCapitalised = "He"
     possessivePronounCapitalised = "His"
     pointingPronounCapitalised = "Him"
+
+generalCommentsSentences = (
+    "With continued hard work and focus, {0} will go far. I wish {0} all the best for the future - keep up the "
+    "good work. ",
+    "With continued hard work and focus, {0} will go very far. Well done {0}, you should feel proud of everything that "
+    "you have achieved this year. ",
+    "{0} should feel very proud of {2} achievements this year. Well done {0}, I wish you all the best for the future. ",
+    "{0} should feel extremely proud of all of {2} achievements this year. {4} conscientious attitude towards {2} "
+    "friendships, as well as {2} positive mindset will take {5} very far. I wish {0} all the best for the future. ",
+    "{0} should feel very proud of everything which {1} has achieved this year, and I wish {5} all the best for the "
+    "future. Well done {0}, keep up the good work! ",
+    "{0}'s kind, thoughtful attitude towards {2} friendships, coupled with {2} conscientious approach to {2} learning "
+    "and willingness to improve {5}self will take {5} far. Well done  {0}, you should feel proud of all that you have "
+    "achieved. ",
+    "{0} should feel very proud of the progress which {1} has made this year. With continued hard work and "
+    "concentration, {0} will go very far. Congratulations {0} on a successful year! ",
+    "With continued focus, hard work and dedication to nurturing positive relationships with {2} classmates, {0} will "
+    "go far. {0} should feel proud of the progress {1} has made this year. Well done {0}, keep up the good work! ",
+    "{0} should feel extremely proud of everything which {1} has achieved this year. With continued hard work, "
+    "concentration and dedication towards {2} learning and friendships, {0} will go far. I wish {0} all the best "
+    "for the future. ",
+    "{0} should feel proud of {2} achievements this year and I wish {5} all the best for the future. Well done {0}, "
+    "keep up the good work! "
+)
 
 goodMathsStart = (
     "{0} has a sound and in-depth understanding of a range of mathematical concepts, and I have been very "
@@ -571,10 +596,16 @@ report += scienceReport + "\n"
 
 
 report += "\nGENERAL COMMENTS: \n"
-x = random.randint(0, len(goodOtherSubjects) - 1)
-generalReport += goodOtherSubjects[x]
+x = random.randint(0, len(generalCommentsSentences) - 1)
+generalReport += generalCommentsSentences[x]
 
 report += generalReport + "\n"
+
+report += "\nOTHER SUBJECTS: \n"
+x = random.randint(0, len(goodOtherSubjects) - 1)
+otherSubjectsReport += goodOtherSubjects[x]
+
+report += otherSubjectsReport + "\n"
 
 religStudyReport = religStudyReport.format(firstName,
                        nominalPronoun,
@@ -605,6 +636,13 @@ scienceReport = scienceReport.format(firstName,
                        pointingPronoun,
                        pointingPronounCapitalised)
 generalReport = generalReport.format(firstName,
+                       nominalPronoun,
+                       possessivePronoun,
+                       nominalPronounCapitalised,
+                       possessivePronounCapitalised,
+                       pointingPronoun,
+                       pointingPronounCapitalised)
+otherSubjectsReport = otherSubjectsReport.format(firstName,
                        nominalPronoun,
                        possessivePronoun,
                        nominalPronounCapitalised,
@@ -716,6 +754,18 @@ def addOtherSubjectsReport(otherReport):
                                                         step += 1
                                                     
                                                     
+def addGeneralCommentsText(generalReport):
+    for table in document.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                lst = iter(cell.paragraphs)
+                for paragraph in lst:
+                    if "General Comments/Behaviour/Attitude to Learning" in paragraph.text:
+                        for paragraph in lst:
+                            paragraph.add_run("\n" + generalReport + "\n", style = 'ReportStyle')
+                            return
+
+
 def addSubjectReportText(subject, subjectReport):
     for table in document.tables:
         for row in table.rows:
@@ -741,7 +791,8 @@ addSubjectReport('Religious Education', religStudyReport, religStudy, religStudy
 addSubjectReport('English', englishReport, (english + phonics) // 2, (englishEffort + phonicsEffort) // 2)
 addSubjectReport('Mathematics', mathsReport, maths, mathsEffort)
 addSubjectReport('Science', scienceReport, science, scienceEffort)
-addOtherSubjectsReport(generalReport)
+addGeneralCommentsText(generalReport)
+addOtherSubjectsReport(otherSubjectsReport)
 
 documentName = firstName + ' ' + lastName + '.docx'
 document.save(documentName)
