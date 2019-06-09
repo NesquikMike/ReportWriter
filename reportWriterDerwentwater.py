@@ -9,12 +9,12 @@ document = Document('derwentwater_template.docx')
 obj_styles = document.styles
 obj_reportStyle = obj_styles.add_style('ReportStyle', WD_STYLE_TYPE.CHARACTER)
 obj_report_font = obj_reportStyle.font
-obj_report_font.size = Pt(10)
+obj_report_font.size = Pt(9.5)
 obj_report_font.name = 'Calibri'
 
 obj_english_reportStyle = obj_styles.add_style('EnglishReportStyle', WD_STYLE_TYPE.CHARACTER)
 obj_english_font = obj_english_reportStyle.font
-obj_english_font.size = Pt(9.8)
+obj_english_font.size = Pt(9.5)
 obj_english_font.name = 'Calibri'
 
 
@@ -151,24 +151,27 @@ badWriting = (
 )
 
 goodMaths = (
-    f"{firstName} is a very gifted mathematician and has worked extremely hard this year. {nominalPronounCapitalised} "
-    f"is able to soundly recall all of {possessivePronoun} multiplication and division facts and can apply these to a "
-    f"range of mathematical situations and word problems. {firstName} works quickly and efficiently, taking the time "
-    f"to show {possessivePronoun} working out and to explain {possessivePronoun} answers. {nominalPronounCapitalised} can confidently "
-    f"and accurately use a range of written and mental methods to solve complex multi-step problems. "
+    f"{firstName} is a very gifted mathematician and has worked extremely hard this year. "
+    f"{nominalPronounCapitalised} is able to soundly recall all of {possessivePronoun} multiplication and division "
+    f"facts and can apply these to a range of mathematical situations and word problems. "
+    f"{firstName} works quickly and efficiently, taking the time to show {possessivePronoun} working out and to "
+    f"explain {possessivePronoun} answers. "
+    f"{nominalPronounCapitalised} can confidently and accurately use a range of written and mental methods to solve "
+    f"complex multi-step problems. "
     f"{nominalPronounCapitalised} continues to challenge and stretch {pointingPronoun}self every day, and this has "
     f"helped {pointingPronoun} to make outstanding progress. "
 )
 
 okMaths = (
-    f"{firstName} has made good progress in maths this year. {nominalPronoun} can now confidently recall most of "
-    f"{possessivePronoun} times tables and division facts, and can accurately apply these facts to solve word "
-    f"problems. {firstName} can use a range of mental strategies to solve calculations and is becoming more confident "
-    f"about using written methods for addition and subtraction. {nominalPronounCapitalised} completes "
-    f"{possessivePronoun} work independently and sensibly at {possessivePronoun} table, and presents "
-    f"{possessivePronoun} work neatly in {possessivePronoun} book. {firstName} is confident about asking "
-    f"for help when {nominalPronoun} needs it, and this has helped {pointingPronoun} to make good progress with "
-    f"{possessivePronoun} learning. "
+    f"{firstName} has made good progress in maths this year. "
+    f"{nominalPronounCapitalised} can now confidently recall most of {possessivePronoun} times tables and division "
+    f"facts, and can accurately apply these facts to solve word problems. "
+    f"{firstName} can use a range of mental strategies to solve calculations and is becoming more confident "
+    f"about using written methods for addition and subtraction. "
+    f"{nominalPronounCapitalised} completes {possessivePronoun} work independently and sensibly at {possessivePronoun} "
+    f"table, and presents {possessivePronoun} work neatly in {possessivePronoun} book. "
+    f"{firstName} is confident about asking for help when {nominalPronoun} needs it, and this has helped "
+    f"{pointingPronoun} to make good progress with {possessivePronoun} learning. "
 )
 
 badMaths = (
